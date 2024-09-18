@@ -1,5 +1,6 @@
 let currentThreadId = null;
 let currentAssistantId = null;
+let currentAssistantName = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const assistantSelect = document.getElementById('assistant-select');
@@ -23,9 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle assistant selection
     assistantSelect.addEventListener('change', (event) => {
         currentAssistantId = event.target.value;
+        currentAssistantName = event.target.options[event.target.selectedIndex].text;
         if (currentAssistantId) {
-            chatContainer.innerHTML = ''; // Clear previous messages
+            chatContainer.innerHTML = ''; // Clear previous messages only when a new assistant is selected
             createNewThread();
+            addMessageToChat('system', `You are now chatting with ${currentAssistantName}`);
         }
     });
 
@@ -86,7 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function addMessageToChat(role, content) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', `${role}-message`);
-        messageElement.textContent = content;
+        
+        if (role === 'assistant') {
+            messageElement.textContent = `${currentAssistantName}: ${content}`;
+        } else {
+            messageElement.textContent = content;
+        }
+        
         chatContainer.appendChild(messageElement);
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
