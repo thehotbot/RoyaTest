@@ -41,6 +41,12 @@ def run_assistant(client, thread_id: str, assistant_id: str) -> Run:
         logging.error(f"Run failed with status: {run.status}")
         raise Exception(f"Assistant run failed with status: {run.status}")
     
+    # Add this check to ensure new messages are available
+    messages = client.beta.threads.messages.list(thread_id=thread_id, order="desc", limit=1)
+    if not messages.data or messages.data[0].role != "assistant":
+        logging.error("No new assistant message found after run completion")
+        raise Exception("No new assistant message found after run completion")
+    
     return run
 
 def get_messages(client, thread_id: str):

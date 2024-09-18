@@ -47,15 +47,14 @@ def send_message():
         run = run_assistant(client, thread_id, assistant_id)
         logging.debug(f"Assistant run completed: {run}")
 
-        # Add a small delay
-        time.sleep(2)
-
         # Get all messages
         messages = get_messages(client, thread_id)
-        logging.debug(f"All messages: {messages}")
+        logging.debug(f"All messages retrieved: {messages}")
 
         # Filter out user messages and get the last assistant message
         assistant_messages = [msg for msg in messages if msg['role'] == 'assistant']
+        logging.debug(f"Filtered assistant messages: {assistant_messages}")
+
         if not assistant_messages:
             logging.error("No assistant message found in the thread")
             return jsonify({"error": "No response from assistant"}), 500
