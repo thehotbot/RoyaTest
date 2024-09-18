@@ -66,11 +66,19 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.json())
             .then(data => {
-                data.messages.forEach(msg => {
-                    if (msg.role !== 'user') {
-                        addMessageToChat('assistant', msg.content[0].text.value);
-                    }
-                });
+                if (data.error) {
+                    console.error('Error:', data.error);
+                    addMessageToChat('system', 'Error: ' + data.error);
+                } else {
+                    const assistantMessages = data.messages.filter(msg => msg.role === 'assistant');
+                    assistantMessages.forEach(msg => {
+                        addMessageToChat('assistant', msg.content);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addMessageToChat('system', 'Error: Unable to send message');
             });
         }
     }
