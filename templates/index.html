@@ -14,7 +14,7 @@
             <select id="assistant-select" class="mr-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="">Select an assistant</option>
             </select>
-            <button id="start-button" class="bg-green-500 text-white px-4 py-2 rounded-md disabled:opacity-50 hover:bg-green-600 transition duration-300">Start</button>
+            <button id="start-button" class="text-white px-4 py-2 rounded-md disabled:opacity-50 hover:opacity-90 transition duration-300">Start</button>
         </div>
         <div class="smartphone-frame">
             <div id="chat-container" class="flex-grow bg-white p-4 overflow-y-auto mb-4">
@@ -23,7 +23,7 @@
         </div>
         <div class="flex mt-4">
             <input type="text" id="message-input" class="flex-grow border rounded-l-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Type your message...">
-            <button id="send-button" class="bg-indigo-500 text-white px-6 py-2 rounded-r-lg hover:bg-indigo-600 transition duration-300">Send</button>
+            <button id="send-button" class="text-white px-6 py-2 rounded-r-lg hover:opacity-90 transition duration-300">Send</button>
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>

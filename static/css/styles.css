@@ -16,6 +16,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     word-wrap: break-word;
+    font-size: 0.9rem; /* Reduced message text size */
 }
 
 .user-message {
@@ -44,22 +45,23 @@ body {
 }
 
 #start-button, #send-button {
+    background-color: #FF4500; /* Orange-red color */
+    color: white;
     transition: background-color 0.3s ease;
 }
 
 #start-button:hover, #send-button:hover {
-    opacity: 0.9;
+    background-color: #FF6347; /* Slightly lighter orange-red for hover state */
 }
 
 #start-button:disabled {
-    background-color: #9CA3AF;
-    cursor: not-allowed;
+    background-color: #FFA07A; /* Light salmon color for disabled state */
 }
 
 .smartphone-frame {
     position: relative;
-    width: 360px;
-    height: 640px;
+    width: 396px; /* Increased from 360px (360 * 1.1 = 396) */
+    height: 704px; /* Increased from 640px (640 * 1.1 = 704) */
     margin: auto;
     border: 16px black solid;
     border-top-width: 60px;
