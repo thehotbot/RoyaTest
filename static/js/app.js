@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.getElementById('send-button');
     const startButton = document.getElementById('start-button');
 
+    console.log('Start button initialized:', startButton);
+
     // Fetch assistants and populate the dropdown
     fetch('/get_assistants')
         .then(response => response.json())
@@ -38,10 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle start button click
     startButton.addEventListener('click', () => {
+        console.log('Start button clicked');
         if (currentAssistantId) {
+            console.log('Current assistant ID:', currentAssistantId);
             startButton.disabled = true;
             sendMessage('START');
         } else {
+            console.log('No assistant selected');
             alert('Please select an assistant first.');
         }
     });
@@ -66,7 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function sendMessage(message = null) {
+        console.log('sendMessage called with message:', message);
         const messageToSend = message || messageInput.value.trim();
+        console.log('messageToSend:', messageToSend);
+        console.log('currentThreadId:', currentThreadId);
+        console.log('currentAssistantId:', currentAssistantId);
         if (messageToSend && currentThreadId && currentAssistantId) {
             addMessageToChat('user', messageToSend);
             if (!message) {
@@ -108,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error:', error);
                 addMessageToChat('system', 'Error: Unable to send message');
             });
+        } else {
+            console.log('Message not sent. Check values:', { messageToSend, currentThreadId, currentAssistantId });
         }
     }
 
