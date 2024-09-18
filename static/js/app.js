@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatContainer = document.getElementById('chat-container');
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
+    const startButton = document.getElementById('start-button');
 
     // Fetch assistants and populate the dropdown
     fetch('/get_assistants')
@@ -29,11 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
             chatContainer.innerHTML = ''; // Clear previous messages only when a new assistant is selected
             createNewThread();
             addMessageToChat('system', `You are now chatting with ${currentAssistantName}`);
+            startButton.disabled = false;
+        } else {
+            startButton.disabled = true;
+        }
+    });
+
+    // Handle start button click
+    startButton.addEventListener('click', () => {
+        if (currentAssistantId) {
+            startButton.disabled = true;
+            sendMessage('START');
+        } else {
+            alert('Please select an assistant first.');
         }
     });
 
     // Handle send button click
-    sendButton.addEventListener('click', sendMessage);
+    sendButton.addEventListener('click', () => sendMessage());
 
     // Handle enter key press in message input
     messageInput.addEventListener('keypress', (event) => {
@@ -51,14 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function sendMessage() {
-        const message = messageInput.value.trim();
-        if (message && currentThreadId && currentAssistantId) {
-            addMessageToChat('user', message);
-            messageInput.value = '';
+    function sendMessage(message = null) {
+        const messageToSend = message || messageInput.value.trim();
+        if (messageToSend && currentThreadId && currentAssistantId) {
+            addMessageToChat('user', messageToSend);
+            if (!message) {
+                messageInput.value = '';
+            }
             chatContainer.scrollTop = chatContainer.scrollHeight;
 
-            console.log('Sending message:', message);
+            console.log('Sending message:', messageToSend);
             fetch('/send_message', {
                 method: 'POST',
                 headers: {
@@ -66,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({
                     thread_id: currentThreadId,
-                    message: message,
+                    message: messageToSend,
                     assistant_id: currentAssistantId
                 }),
             })
@@ -101,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (role === 'assistant') {
             messageElement.textContent = `${currentAssistantName}: ${content}`;
+        } else if (role === 'user') {
+            messageElement.textContent = `You: ${content}`;
         } else {
             messageElement.textContent = content;
         }

@@ -50,14 +50,20 @@ def run_assistant(client, thread_id: str, assistant_id: str) -> Run:
     return run
 
 def get_messages(client, thread_id: str):
-    messages = client.beta.threads.messages.list(thread_id=thread_id)
+    messages = client.beta.threads.messages.list(thread_id=thread_id, order="desc", limit=10)
     logging.debug(f"Retrieved {len(messages.data)} messages from thread {thread_id}")
-    formatted_messages = [
-        {
-            "role": message.role,
-            "content": message.content[0].text.value if message.content else ""
-        }
-        for message in reversed(messages.data)
-    ]
+    
+    formatted_messages = []
+    seen_contents = set()
+    
+    for message in messages.data:
+        content = message.content[0].text.value if message.content else ""
+        if content not in seen_contents:
+            formatted_messages.append({
+                "role": message.role,
+                "content": content
+            })
+            seen_contents.add(content)
+    
     logging.debug(f"Formatted messages: {formatted_messages}")
     return formatted_messages

@@ -1,8 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
 #chat-container {
-    height: calc(100vh - 200px);
+    height: calc(100vh - 250px);
     display: flex;
     flex-direction: column;
     padding: 10px;
+    border: 1px solid #e2e8f0;
 }
 
 .message {
@@ -15,12 +20,38 @@
 
 .user-message {
     align-self: flex-end;
-    background-color: #DCF8C6;
+    background-color: #4F46E5;
+    color: white;
     margin-left: auto;
 }
 
 .assistant-message {
     align-self: flex-start;
-    background-color: #E5E5EA;
+    background-color: #E5E7EB;
+    color: #1F2937;
     margin-right: auto;
+}
+
+.system-message {
+    align-self: center;
+    background-color: #FEF3C7;
+    color: #92400E;
+    font-style: italic;
+}
+
+#assistant-select, #message-input {
+    border: 1px solid #D1D5DB;
+}
+
+#start-button, #send-button {
+    transition: background-color 0.3s ease;
+}
+
+#start-button:hover, #send-button:hover {
+    opacity: 0.9;
+}
+
+#start-button:disabled {
+    background-color: #9CA3AF;
+    cursor: not-allowed;
 }
