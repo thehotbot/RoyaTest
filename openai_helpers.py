@@ -32,7 +32,7 @@ def get_messages(client, thread_id: str):
     return [
         {
             "role": message.role,
-            "content": message.content
+            "content": message.content[0].text.value if message.content else ""
         }
         for message in messages.data
     ]
