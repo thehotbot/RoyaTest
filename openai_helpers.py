@@ -24,11 +24,16 @@ def run_assistant(client, thread_id: str, assistant_id: str) -> Run:
         thread_id=thread_id,
         assistant_id=assistant_id
     )
-    # Wait for the run to complete
+    logging.debug(f"Created run: {run.id}")
+    
     while run.status not in ["completed", "failed", "cancelled"]:
-        time.sleep(1)  # Wait for 1 second before checking again
+        time.sleep(1)
         run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
         logging.debug(f"Run status: {run.status}")
+        
+        if run.status == "requires_action":
+            logging.debug(f"Run requires action: {run.required_action}")
+            # Handle required actions here if needed
     
     logging.debug(f"Run completed with status: {run.status}")
     
@@ -40,10 +45,13 @@ def run_assistant(client, thread_id: str, assistant_id: str) -> Run:
 
 def get_messages(client, thread_id: str):
     messages = client.beta.threads.messages.list(thread_id=thread_id)
-    return [
+    logging.debug(f"Retrieved {len(messages.data)} messages from thread {thread_id}")
+    formatted_messages = [
         {
             "role": message.role,
             "content": message.content[0].text.value if message.content else ""
         }
-        for message in reversed(messages.data)  # Reverse the order here
+        for message in reversed(messages.data)
     ]
+    logging.debug(f"Formatted messages: {formatted_messages}")
+    return formatted_messages
