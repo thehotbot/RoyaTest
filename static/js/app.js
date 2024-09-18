@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentAssistantId) {
             chatContainer.innerHTML = ''; // Clear previous messages only when a new assistant is selected
             createNewThread();
-            addMessageToChat('system', `You are now chatting with ${currentAssistantName}`);
             startButton.disabled = false;
         } else {
             startButton.disabled = true;
@@ -44,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentAssistantId) {
             console.log('Current assistant ID:', currentAssistantId);
             startButton.disabled = true;
+            addMessageToChat('system', `You are now chatting with ${currentAssistantName}`);
             sendMessage('START');
         } else {
             console.log('No assistant selected');
@@ -77,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('currentThreadId:', currentThreadId);
         console.log('currentAssistantId:', currentAssistantId);
         if (messageToSend && currentThreadId && currentAssistantId) {
-            addMessageToChat('user', messageToSend);
+            if (messageToSend !== 'START') {
+                addMessageToChat('user', messageToSend);
+            }
             if (!message) {
                 messageInput.value = '';
             }
@@ -127,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.add('message', `${role}-message`);
         
         if (role === 'assistant') {
-            messageElement.textContent = `${currentAssistantName}: ${content}`;
+            messageElement.textContent = content;
         } else if (role === 'user') {
             messageElement.textContent = `You: ${content}`;
         } else {
