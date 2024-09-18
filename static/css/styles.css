@@ -33,6 +33,11 @@ body {
     margin-right: auto;
 }
 
+.assistant-message a {
+    color: blue;
+    text-decoration: underline;
+}
+
 .system-message {
     align-self: center;
     background-color: #FEF3C7;

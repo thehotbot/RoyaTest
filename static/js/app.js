@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.log('Message not sent. Check values:', { messageToSend, currentThreadId, currentAssistantId });
         }
+        messageInput.focus();
     }
 
     function addMessageToChat(role, content) {
@@ -129,7 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.add('message', `${role}-message`);
         
         if (role === 'assistant') {
-            messageElement.textContent = content;
+            // Parse links in the content
+            const formattedContent = content.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+            messageElement.innerHTML = formattedContent;
         } else if (role === 'user') {
             messageElement.textContent = `You: ${content}`;
         } else {
