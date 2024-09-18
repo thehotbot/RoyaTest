@@ -48,8 +48,13 @@ def send_message():
 
         # Get only the last message
         messages = get_messages(client, thread_id)
+        logging.debug(f"Retrieved messages: {messages}")
         last_message = messages[0] if messages else None
-        logging.debug(f"Retrieved last message: {last_message}")
+        logging.debug(f"Last message: {last_message}")
+
+        if last_message is None:
+            logging.error("No messages retrieved from the thread")
+            return jsonify({"error": "No response from assistant"}), 500
 
         return jsonify({"message": last_message})
     except Exception as e:

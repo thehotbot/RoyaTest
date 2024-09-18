@@ -1,7 +1,9 @@
+import time
 from openai.types.beta import Assistant
 from openai.types.beta.thread import Thread
 from openai.types.beta.threads.run import Run
 from openai.types.beta.threads.message import Message
+import logging
 
 def get_assistants(client):
     assistants = client.beta.assistants.list(order="desc", limit=20)
@@ -23,8 +25,15 @@ def run_assistant(client, thread_id: str, assistant_id: str) -> Run:
         assistant_id=assistant_id
     )
     # Wait for the run to complete
-    while run.status != "completed":
+    while run.status not in ["completed", "failed", "cancelled"]:
+        time.sleep(1)  # Wait for 1 second before checking again
         run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+        logging.debug(f"Run status: {run.status}")
+    
+    if run.status != "completed":
+        logging.error(f"Run failed with status: {run.status}")
+        raise Exception(f"Assistant run failed with status: {run.status}")
+    
     return run
 
 def get_messages(client, thread_id: str):
