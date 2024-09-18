@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (message && currentThreadId && currentAssistantId) {
             addMessageToChat('user', message);
             messageInput.value = '';
+            chatContainer.scrollTop = chatContainer.scrollHeight;
 
             fetch('/send_message', {
                 method: 'POST',
@@ -76,9 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const assistantMessages = data.messages.filter(msg => msg.role === 'assistant');
                     if (assistantMessages.length > 0) {
                         const latestMessage = assistantMessages[assistantMessages.length - 1];
-                        addMessageToChat('assistant', latestMessage.content, true);
+                        addMessageToChat('assistant', latestMessage.content);
                     }
                 }
+                chatContainer.scrollTop = chatContainer.scrollHeight;
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -87,12 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function addMessageToChat(role, content, isReplacement = false) {
-        if (isReplacement) {
-            const existingAssistantMessages = chatContainer.querySelectorAll('.assistant-message');
-            existingAssistantMessages.forEach(msg => msg.remove());
-        }
-        
+    function addMessageToChat(role, content) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', `${role}-message`);
         

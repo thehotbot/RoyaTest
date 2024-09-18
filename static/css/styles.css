@@ -2,6 +2,7 @@
     height: calc(100vh - 200px);
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .message {
@@ -9,14 +10,17 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 
 .user-message {
     align-self: flex-end;
     background-color: #DCF8C6;
+    margin-left: auto;
 }
 
 .assistant-message {
     align-self: flex-start;
     background-color: #E5E5EA;
+    margin-right: auto;
 }
