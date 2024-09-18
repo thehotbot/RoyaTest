@@ -46,11 +46,12 @@ def send_message():
         run = run_assistant(client, thread_id, assistant_id)
         logging.debug(f"Assistant run completed: {run}")
 
-        # Get updated messages
+        # Get only the last message
         messages = get_messages(client, thread_id)
-        logging.debug(f"Retrieved messages: {messages}")
+        last_message = messages[0] if messages else None
+        logging.debug(f"Retrieved last message: {last_message}")
 
-        return jsonify({"messages": messages})
+        return jsonify({"message": last_message})
     except Exception as e:
         logging.error(f"Error in send_message: {str(e)}")
         return jsonify({"error": str(e)}), 500

@@ -74,10 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Error:', data.error);
                     addMessageToChat('system', 'Error: ' + data.error);
                 } else {
-                    const assistantMessages = data.messages.filter(msg => msg.role === 'assistant');
-                    if (assistantMessages.length > 0) {
-                        const latestMessage = assistantMessages[assistantMessages.length - 1];
-                        addMessageToChat('assistant', latestMessage.content);
+                    const lastMessage = data.message;
+                    if (lastMessage && lastMessage.role === 'assistant') {
+                        addMessageToChat('assistant', lastMessage.content);
                     }
                 }
                 chatContainer.scrollTop = chatContainer.scrollHeight;

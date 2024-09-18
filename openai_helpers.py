@@ -34,5 +34,5 @@ def get_messages(client, thread_id: str):
             "role": message.role,
             "content": message.content[0].text.value if message.content else ""
         }
-        for message in messages.data
+        for message in reversed(messages.data)  # Reverse the order here
     ]
