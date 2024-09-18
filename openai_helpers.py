@@ -30,6 +30,8 @@ def run_assistant(client, thread_id: str, assistant_id: str) -> Run:
         run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
         logging.debug(f"Run status: {run.status}")
     
+    logging.debug(f"Run completed with status: {run.status}")
+    
     if run.status != "completed":
         logging.error(f"Run failed with status: {run.status}")
         raise Exception(f"Assistant run failed with status: {run.status}")

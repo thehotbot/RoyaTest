@@ -50,22 +50,24 @@ def send_message():
         # Add a small delay
         time.sleep(2)
 
-        # Get only the last message
+        # Get all messages
         messages = get_messages(client, thread_id)
-        logging.debug(f"Retrieved messages: {messages}")
-        last_message = messages[0] if messages else None
-        logging.debug(f"Last message: {last_message}")
+        logging.debug(f"All messages: {messages}")
+        for msg in messages:
+            logging.debug(f"Message: {msg}")
 
-        if last_message is None:
-            logging.error("No messages retrieved from the thread")
+        if not any(msg['role'] == 'assistant' for msg in messages):
+            logging.error("No assistant message found in the thread")
             return jsonify({"error": "No response from assistant"}), 500
 
-        if last_message['role'] != 'assistant':
-            logging.error(f"Last message is not from assistant: {last_message}")
+        last_assistant_message = next((msg for msg in messages if msg['role'] == 'assistant'), None)
+        if last_assistant_message:
+            logging.debug(f"Last assistant message: {last_assistant_message}")
+            return jsonify({"message": last_assistant_message})
+        else:
+            logging.error("Unexpected state: assistant message not found after check")
             return jsonify({"error": "Unexpected response from assistant"}), 500
 
-        logging.debug(f"Sending assistant response: {last_message}")
-        return jsonify({"message": last_message})
     except Exception as e:
         logging.error(f"Error in send_message: {str(e)}")
         return jsonify({"error": str(e)}), 500
