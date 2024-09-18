@@ -74,9 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     addMessageToChat('system', 'Error: ' + data.error);
                 } else {
                     const assistantMessages = data.messages.filter(msg => msg.role === 'assistant');
-                    assistantMessages.forEach(msg => {
-                        addMessageToChat('assistant', msg.content);
-                    });
+                    if (assistantMessages.length > 0) {
+                        const latestMessage = assistantMessages[assistantMessages.length - 1];
+                        addMessageToChat('assistant', latestMessage.content, true);
+                    }
                 }
             })
             .catch(error => {
@@ -86,7 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function addMessageToChat(role, content) {
+    function addMessageToChat(role, content, isReplacement = false) {
+        if (isReplacement) {
+            const existingAssistantMessages = chatContainer.querySelectorAll('.assistant-message');
+            existingAssistantMessages.forEach(msg => msg.remove());
+        }
+        
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', `${role}-message`);
         
