@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 currentThreadId = data.thread_id;
+                console.log('New thread created:', currentThreadId);
             });
     }
 
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageInput.value = '';
             chatContainer.scrollTop = chatContainer.scrollHeight;
 
+            console.log('Sending message:', message);
             fetch('/send_message', {
                 method: 'POST',
                 headers: {
@@ -70,13 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.json())
             .then(data => {
+                console.log('Received data from server:', data);
                 if (data.error) {
                     console.error('Error:', data.error);
                     addMessageToChat('system', 'Error: ' + data.error);
                 } else {
                     const lastMessage = data.message;
+                    console.log('Last message:', lastMessage);
                     if (lastMessage && lastMessage.role === 'assistant') {
+                        console.log('Adding assistant message to chat:', lastMessage.content);
                         addMessageToChat('assistant', lastMessage.content);
+                    } else {
+                        console.log('No assistant message found in the response');
                     }
                 }
                 chatContainer.scrollTop = chatContainer.scrollHeight;

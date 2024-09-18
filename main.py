@@ -1,5 +1,6 @@
 import os
 import logging
+import time
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
 from openai_helpers import get_assistants, create_thread, add_message_to_thread, run_assistant, get_messages
@@ -46,6 +47,9 @@ def send_message():
         run = run_assistant(client, thread_id, assistant_id)
         logging.debug(f"Assistant run completed: {run}")
 
+        # Add a small delay
+        time.sleep(2)
+
         # Get only the last message
         messages = get_messages(client, thread_id)
         logging.debug(f"Retrieved messages: {messages}")
@@ -56,6 +60,11 @@ def send_message():
             logging.error("No messages retrieved from the thread")
             return jsonify({"error": "No response from assistant"}), 500
 
+        if last_message['role'] != 'assistant':
+            logging.error(f"Last message is not from assistant: {last_message}")
+            return jsonify({"error": "Unexpected response from assistant"}), 500
+
+        logging.debug(f"Sending assistant response: {last_message}")
         return jsonify({"message": last_message})
     except Exception as e:
         logging.error(f"Error in send_message: {str(e)}")
