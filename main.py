@@ -15,6 +15,11 @@ if not OPENAI_API_KEY:
     logging.error("OPENAI_API_KEY is not set in the environment variables")
     raise ValueError("OPENAI_API_KEY is not set")
 
+LOGIN_PASSWORD = os.environ.get("LOGIN_PASSWORD")
+if not LOGIN_PASSWORD:
+    logging.error("LOGIN_PASSWORD is not set in the environment variables")
+    raise ValueError("LOGIN_PASSWORD is not set")
+
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Session configuration
@@ -34,7 +39,7 @@ def login_required(f):
 def login():
     if request.method == 'POST':
         password = request.form.get('password')
-        if password == 'your_password_here':  # Replace with a real password
+        if password == LOGIN_PASSWORD:
             session['authenticated'] = True
             return redirect(url_for('index'))
         else:
