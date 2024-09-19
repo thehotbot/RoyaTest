@@ -1,5 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
 }
 
 #chat-container {
@@ -7,72 +9,85 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #d1d9e6;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .message {
     max-width: 70%;
     margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 18px;
     word-wrap: break-word;
-    font-size: 0.9rem; /* Reduced message text size */
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .user-message {
     align-self: flex-end;
-    background-color: #4F46E5;
+    background-color: #3498db;
     color: white;
     margin-left: auto;
 }
 
 .assistant-message {
     align-self: flex-start;
-    background-color: #E5E7EB;
-    color: #1F2937;
+    background-color: #ecf0f1;
+    color: #2c3e50;
     margin-right: auto;
 }
 
 .assistant-message a {
-    color: blue;
+    color: #2980b9;
     text-decoration: underline;
 }
 
 .system-message {
     align-self: center;
-    background-color: #FEF3C7;
-    color: #92400E;
+    background-color: #f1c40f;
+    color: #34495e;
     font-style: italic;
 }
 
 #assistant-select, #message-input {
-    border: 1px solid #D1D5DB;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 0.9rem;
 }
 
 #start-button, #send-button {
-    background-color: #FF4500; /* Orange-red color */
+    background-color: #2ecc71;
     color: white;
     transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 
 #start-button:hover, #send-button:hover {
-    background-color: #FF6347; /* Slightly lighter orange-red for hover state */
+    background-color: #27ae60;
 }
 
 #start-button:disabled {
-    background-color: #FFA07A; /* Light salmon color for disabled state */
+    background-color: #95a5a6;
+    cursor: not-allowed;
 }
 
 .smartphone-frame {
     position: relative;
-    width: 396px; /* Increased from 360px (360 * 1.1 = 396) */
-    height: 704px; /* Increased from 640px (640 * 1.1 = 704) */
+    width: 360px;
+    height: 640px;
     margin: auto;
-    border: 16px black solid;
+    border: 16px #34495e solid;
     border-top-width: 60px;
     border-bottom-width: 60px;
     border-radius: 36px;
     background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .smartphone-frame:before {
@@ -84,7 +99,7 @@ body {
     top: -30px;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #333;
+    background: #7f8c8d;
     border-radius: 10px;
 }
 
@@ -97,6 +112,21 @@ body {
     left: 50%;
     bottom: -65px;
     transform: translate(-50%, -50%);
-    background: #333;
+    background: #95a5a6;
     border-radius: 50%;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
 }
