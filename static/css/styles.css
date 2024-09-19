@@ -1,7 +1,11 @@
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f3f4f6;
-    color: #1f2937;
+    background-color: #141E33;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
 }
 
 #chat-container {
@@ -26,7 +30,7 @@ body {
 
 .user-message {
     align-self: flex-end;
-    background-color: #4f46e5;
+    background-color: #FD4C00;
     color: white;
     margin-left: auto;
 }
@@ -39,14 +43,14 @@ body {
 }
 
 .assistant-message a {
-    color: #4f46e5;
+    color: #FD4C00;
     text-decoration: underline;
 }
 
 .system-message {
     align-self: center;
-    background-color: #fde68a;
-    color: #92400e;
+    background-color: #fcba04;
+    color: #1f2937;
     font-style: italic;
 }
 
@@ -58,7 +62,7 @@ body {
 }
 
 #start-button, #send-button {
-    background-color: #4f46e5;
+    background-color: #FD4C00;
     color: white;
     transition: background-color 0.3s ease;
     border: none;
@@ -69,7 +73,7 @@ body {
 }
 
 #start-button:hover, #send-button:hover {
-    background-color: #4338ca;
+    background-color: #e64400;
 }
 
 #start-button:disabled {
@@ -117,17 +121,16 @@ body {
 }
 
 h1 {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #111827;
+    color: #fcba04;
     font-weight: 700;
 }
 
 a {
-    color: #4f46e5;
+    color: #FD4C00;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #4338ca;
+    color: #e64400;
 }

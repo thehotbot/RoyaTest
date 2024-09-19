@@ -703,9 +703,14 @@ video {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.bg-indigo-600 {
+.bg-gray-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.bg-orange-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -776,19 +781,14 @@ video {
   line-height: 1.25;
 }
 
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
-.text-indigo-600 {
+.text-orange-500 {
   --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity));
+  color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 
 .text-red-500 {
@@ -799,6 +799,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-yellow-400 {
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity));
 }
 
 .shadow {
@@ -835,8 +840,12 @@ video {
 
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f3f4f6;
-  color: #1f2937;
+  background-color: #141E33;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
 }
 
 #chat-container {
@@ -861,7 +870,7 @@ body {
 
 .user-message {
   align-self: flex-end;
-  background-color: #4f46e5;
+  background-color: #FD4C00;
   color: white;
   margin-left: auto;
 }
@@ -874,14 +883,14 @@ body {
 }
 
 .assistant-message a {
-  color: #4f46e5;
+  color: #FD4C00;
   text-decoration: underline;
 }
 
 .system-message {
   align-self: center;
-  background-color: #fde68a;
-  color: #92400e;
+  background-color: #fcba04;
+  color: #1f2937;
   font-style: italic;
 }
 
@@ -893,7 +902,7 @@ body {
 }
 
 #start-button, #send-button {
-  background-color: #4f46e5;
+  background-color: #FD4C00;
   color: white;
   transition: background-color 0.3s ease;
   border: none;
@@ -904,7 +913,7 @@ body {
 }
 
 #start-button:hover, #send-button:hover {
-  background-color: #4338ca;
+  background-color: #e64400;
 }
 
 #start-button:disabled {
@@ -952,38 +961,37 @@ body {
 }
 
 h1 {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #111827;
+  color: #fcba04;
   font-weight: 700;
 }
 
 a {
-  color: #4f46e5;
+  color: #FD4C00;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #4338ca;
+  color: #e64400;
 }
 
-.hover\:bg-indigo-700:hover {
+.hover\:bg-orange-600:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
 }
 
-.hover\:text-blue-700:hover {
+.hover\:text-orange-700:hover {
   --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
+  color: rgb(194 65 12 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-90:hover {
   opacity: 0.9;
 }
 
-.focus\:border-indigo-500:focus {
+.focus\:border-orange-500:focus {
   --tw-border-opacity: 1;
-  border-color: rgb(99 102 241 / var(--tw-border-opacity));
+  border-color: rgb(249 115 22 / var(--tw-border-opacity));
 }
 
 .focus\:outline-none:focus {
@@ -997,9 +1005,9 @@ a:hover {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.focus\:ring-indigo-500:focus {
+.focus\:ring-orange-500:focus {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(249 115 22 / var(--tw-ring-opacity));
 }
 
 .disabled\:opacity-50:disabled {
