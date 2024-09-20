@@ -53,18 +53,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .screen {
     transition: all 0.3s ease;
-    background-color: #1A202C;
-    border-radius: 1rem;
-    padding: 1rem;
+    flex-basis: 48%;
 }
 
 .expanded {
-    width: 70%;
+    flex-grow: 1;
     opacity: 1;
 }
 
 .shrunk {
-    width: 25%;
+    flex-grow: 0;
     opacity: 0.7;
 }
 

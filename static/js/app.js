@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Start button initialized:', startButton);
 
+    // Add initial classes to the screens
+    smsSimulator.classList.add('expanded');
+    revenueCalculator.classList.add('shrunk');
+
     // Fetch assistants and populate the dropdown
     fetch('/get_assistants')
         .then(response => response.json())
@@ -69,21 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle toggle buttons
     toggleSmsButton.addEventListener('click', () => {
-        smsSimulator.classList.remove('shrunk');
-        smsSimulator.classList.add('expanded');
-        revenueCalculator.classList.remove('expanded');
-        revenueCalculator.classList.add('shrunk');
-        toggleSmsButton.classList.add('active');
-        toggleCalculatorButton.classList.remove('active');
+        smsSimulator.classList.toggle('expanded');
+        smsSimulator.classList.toggle('shrunk');
+        revenueCalculator.classList.toggle('expanded');
+        revenueCalculator.classList.toggle('shrunk');
+        toggleSmsButton.classList.toggle('active');
+        toggleCalculatorButton.classList.toggle('active');
     });
 
     toggleCalculatorButton.addEventListener('click', () => {
-        smsSimulator.classList.remove('expanded');
-        smsSimulator.classList.add('shrunk');
-        revenueCalculator.classList.remove('shrunk');
-        revenueCalculator.classList.add('expanded');
-        toggleSmsButton.classList.remove('active');
-        toggleCalculatorButton.classList.add('active');
+        smsSimulator.classList.toggle('expanded');
+        smsSimulator.classList.toggle('shrunk');
+        revenueCalculator.classList.toggle('expanded');
+        revenueCalculator.classList.toggle('shrunk');
+        toggleSmsButton.classList.toggle('active');
+        toggleCalculatorButton.classList.toggle('active');
     });
 
     // Handle Calculate button click
