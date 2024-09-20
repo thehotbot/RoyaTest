@@ -3,6 +3,8 @@ let currentAssistantId = null;
 let currentAssistantName = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded event fired');
+
     const assistantSelect = document.getElementById('assistant-select');
     const chatContainer = document.getElementById('chat-container');
     const messageInput = document.getElementById('message-input');
@@ -14,18 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleCalculatorButton = document.getElementById('toggle-calculator');
     const smsSimulator = document.getElementById('sms-simulator');
     const revenueCalculator = document.getElementById('revenue-calculator');
+    const screenContainer = document.getElementById('screen-container');
 
-    console.log('Start button initialized:', startButton);
     console.log('Toggle SMS button:', toggleSmsButton);
     console.log('Toggle Calculator button:', toggleCalculatorButton);
     console.log('SMS Simulator:', smsSimulator);
     console.log('Revenue Calculator:', revenueCalculator);
+    console.log('Screen Container:', screenContainer);
 
-    // Add initial classes to the screens
     smsSimulator.classList.add('expanded');
     revenueCalculator.classList.add('shrunk');
 
-    // Fetch assistants and populate the dropdown
     fetch('/get_assistants')
         .then(response => response.json())
         .then(assistants => {
@@ -38,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-    // Handle assistant selection
     assistantSelect.addEventListener('change', (event) => {
         currentAssistantId = event.target.value;
         currentAssistantName = event.target.options[event.target.selectedIndex].text;
@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle start button click
     startButton.addEventListener('click', () => {
         console.log('Start button clicked');
         if (currentAssistantId) {
@@ -65,17 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle send button click
     sendButton.addEventListener('click', () => sendMessage());
 
-    // Handle enter key press in message input
     messageInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             sendMessage();
         }
     });
 
-    // Handle toggle buttons
     toggleSmsButton.addEventListener('click', () => {
         console.log('SMS button clicked');
         toggleScreens(smsSimulator, revenueCalculator);
@@ -87,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function toggleScreens(expandScreen, shrinkScreen) {
+        console.log('toggleScreens function called');
         console.log('Before toggle - Expand:', expandScreen.classList.toString());
         console.log('Before toggle - Shrink:', shrinkScreen.classList.toString());
         
@@ -102,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('After toggle - Shrink:', shrinkScreen.classList.toString());
     }
 
-    // Handle Calculate button click
     calculateBtn.addEventListener('click', calculateRevenue);
 
     function createNewThread() {
@@ -174,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.add('message', `${role}-message`);
         
         if (role === 'assistant') {
-            // Parse links in the content
             const formattedContent = content.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
             messageElement.innerHTML = formattedContent;
         } else if (role === 'user') {
