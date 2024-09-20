@@ -613,6 +613,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -623,6 +627,10 @@ video {
 
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-screen {
@@ -718,6 +726,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -764,9 +777,19 @@ video {
   line-height: 2.25rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -777,8 +800,17 @@ video {
   font-weight: 500;
 }
 
+.font-semibold {
+  font-weight: 600;
+}
+
 .leading-tight {
   line-height: 1.25;
+}
+
+.text-\[\#141E33\] {
+  --tw-text-opacity: 1;
+  color: rgb(20 30 51 / var(--tw-text-opacity));
 }
 
 .text-gray-700 {
@@ -901,7 +933,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
-#start-button, #send-button {
+#start-button, #send-button, #revenue-calculator-button, #calculateBtn {
   background-color: #FD4C00;
   color: white;
   transition: background-color 0.3s ease;
@@ -912,13 +944,22 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-#start-button:hover, #send-button:hover {
+#start-button:hover, #send-button:hover, #revenue-calculator-button:hover, #calculateBtn:hover {
   background-color: #e64400;
 }
 
 #start-button:disabled {
   background-color: #9ca3af;
   cursor: not-allowed;
+}
+
+#revenue-calculator-button {
+  background-color: #fcba04;
+  color: #141E33;
+}
+
+#revenue-calculator-button:hover {
+  background-color: #e6a800;
 }
 
 .smartphone-frame {
@@ -975,9 +1016,55 @@ a:hover {
   color: #e64400;
 }
 
+#revenue-calculator-form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#revenue-calculator-form h2 {
+  color: #141E33;
+  margin-bottom: 15px;
+}
+
+#revenue-calculator-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4b5563;
+}
+
+#revenue-calculator-form input,
+#revenue-calculator-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+#results {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+}
+
+#appointmentsScheduled,
+#potentialRevenue {
+  font-weight: bold;
+  color: #141E33;
+}
+
 .hover\:bg-orange-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-yellow-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
 .hover\:text-orange-700:hover {

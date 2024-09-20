@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const startButton = document.getElementById('start-button');
+    const revenueCalculatorButton = document.getElementById('revenue-calculator-button');
+    const revenueCalculatorForm = document.getElementById('revenue-calculator-form');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const results = document.getElementById('results');
 
     console.log('Start button initialized:', startButton);
 
@@ -60,6 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
             sendMessage();
         }
     });
+
+    // Handle Revenue Calculator button click
+    revenueCalculatorButton.addEventListener('click', () => {
+        revenueCalculatorForm.classList.toggle('hidden');
+    });
+
+    // Handle Calculate button click
+    calculateBtn.addEventListener('click', calculateRevenue);
 
     function createNewThread() {
         fetch('/create_thread', { method: 'POST' })
@@ -141,5 +153,42 @@ document.addEventListener('DOMContentLoaded', () => {
         
         chatContainer.appendChild(messageElement);
         chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function calculateRevenue() {
+        const numLeads = parseFloat(document.getElementById('numLeads').value);
+        const leadAge = document.getElementById('leadAge').value;
+        const closeRate = parseFloat(document.getElementById('closeRate').value) / 100;
+        const avgRevenue = parseFloat(document.getElementById('avgRevenue').value);
+
+        if (isNaN(numLeads) || isNaN(closeRate) || isNaN(avgRevenue)) {
+            alert('Please enter valid numbers for all fields.');
+            return;
+        }
+
+        let appointmentRate;
+        switch (leadAge) {
+            case 'less7':
+                appointmentRate = 0.3;
+                break;
+            case '7to30':
+                appointmentRate = 0.2;
+                break;
+            case '30to90':
+                appointmentRate = 0.1;
+                break;
+            case 'more90':
+                appointmentRate = 0.05;
+                break;
+            default:
+                appointmentRate = 0.1;
+        }
+
+        const appointmentsScheduled = Math.round(numLeads * appointmentRate);
+        const potentialRevenue = appointmentsScheduled * closeRate * avgRevenue;
+
+        document.getElementById('appointmentsScheduled').textContent = `Appointments Scheduled: ${appointmentsScheduled}`;
+        document.getElementById('potentialRevenue').textContent = `Potential Revenue: $${potentialRevenue.toFixed(2)}`;
+        results.classList.remove('hidden');
     }
 });

@@ -1,0 +1,106 @@
+.roi-calculator {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: transparent; /* No background color */
+    color: white; /* Text color white */
+    text-align: center; /* Center align all content */
+}
+
+.input-section {
+    margin-bottom: 15px;
+}
+
+.input-section label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* Text color white */
+}
+
+.input-section input,
+.input-section select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #333; /* Dark background for inputs */
+    color: white; /* Text color white */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#calculateBtn {
+    align-items: center;
+    background-color: var(--accent-3);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: var(--base-3);
+    column-gap: 0.5em;
+    display: inline-flex;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    margin-top: 20px;
+    padding: 15px 30px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+#calculateBtn:hover {
+    background-color: var(--accent-2);
+    color: var(--base-3);
+}
+
+.results {
+    margin-top: 20px;
+    color: white; /* Text color white */
+    font-size: 1.2em; /* Larger output text */
+}
+
+#potentialRevenue {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-2); /* Underlined in var(--accent-2) */
+}
+
+.cta {
+    text-align: center;
+    margin-top: 20px;
+    display: none; /* Hide initially */
+}
+
+.cta-button {
+    align-items: center;
+    background-color: var(--accent-3);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: var(--base-3);
+    column-gap: 0.5em;
+    display: inline-flex;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    animation: throb 1.5s infinite; /* Throbbing animation */
+}
+
+.cta-button:hover {
+    background-color: var(--accent-2);
+    color: var(--base-3);
+}
+
+@keyframes throb {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}

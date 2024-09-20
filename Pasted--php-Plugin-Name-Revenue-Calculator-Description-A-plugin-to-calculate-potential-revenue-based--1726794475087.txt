@@ -1,0 +1,55 @@
+<?php
+/*
+Plugin Name: Revenue Calculator
+Description: A plugin to calculate potential revenue based on aged leads.
+Version: 1.0
+Author: Your Name
+*/
+
+// Enqueue the script and style
+function revenue_calculator_enqueue_scripts() {
+    wp_enqueue_style('revenue-calculator-style', plugin_dir_url(__FILE__) . 'style.css');
+    wp_enqueue_script('revenue-calculator-script', plugin_dir_url(__FILE__) . 'script.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'revenue_calculator_enqueue_scripts');
+
+// Create the shortcode
+function revenue_calculator_shortcode() {
+    ob_start();
+    ?>
+    <div class="roi-calculator">
+        <div class="input-section">
+            <label for="numLeads"><strong>Number Of Old Leads:</strong></label>
+            <input type="number" id="numLeads" placeholder="e.g. 500">
+        </div>
+        <div class="input-section">
+            <label for="leadAge"><strong>Age Of Leads:</strong></label>
+            <select id="leadAge">
+                <option value="less7">Less than 7 days</option>
+                <option value="7to30">7 to 30 days</option>
+                <option value="30to90">30 to 90 days</option>
+                <option value="more90">90+ days</option>
+            </select>
+        </div>
+        <div class="input-section">
+            <label for="closeRate"><strong>Avg Close Rate (%) </strong></label>
+            <input type="number" id="closeRate" placeholder="e.g. 25">
+        </div>
+        <div class="input-section">
+            <label for="avgRevenue"><strong>Average Revenue Per Customer ($):</strong></label>
+            <input type="number" id="avgRevenue" placeholder="e.g. 1000">
+        </div>
+        <button id="calculateBtn" onclick="calculateRevenue()">Calculate Potential Revenue</button>
+        <div class="results" id="results" style="display: none;">
+            <div id="appointmentsScheduled">Appointments Scheduled: 0</div>
+            <div id="potentialRevenue">Potential Revenue: $0.00</div>
+        </div>
+        <div class="cta">
+            <a href="/contact/" class="cta-button">Get Started</a>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('revenue_calculator', 'revenue_calculator_shortcode');
+?>
