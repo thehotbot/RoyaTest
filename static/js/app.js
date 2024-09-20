@@ -78,31 +78,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle toggle buttons
     toggleSmsButton.addEventListener('click', () => {
         console.log('SMS button clicked');
-        console.log('Before toggle - SMS:', smsSimulator.classList.toString());
-        console.log('Before toggle - Calculator:', revenueCalculator.classList.toString());
-        smsSimulator.classList.toggle('expanded');
-        smsSimulator.classList.toggle('shrunk');
-        revenueCalculator.classList.toggle('expanded');
-        revenueCalculator.classList.toggle('shrunk');
-        toggleSmsButton.classList.toggle('active');
-        toggleCalculatorButton.classList.toggle('active');
-        console.log('After toggle - SMS:', smsSimulator.classList.toString());
-        console.log('After toggle - Calculator:', revenueCalculator.classList.toString());
+        toggleScreens(smsSimulator, revenueCalculator);
     });
 
     toggleCalculatorButton.addEventListener('click', () => {
         console.log('Calculator button clicked');
-        console.log('Before toggle - SMS:', smsSimulator.classList.toString());
-        console.log('Before toggle - Calculator:', revenueCalculator.classList.toString());
-        smsSimulator.classList.toggle('expanded');
-        smsSimulator.classList.toggle('shrunk');
-        revenueCalculator.classList.toggle('expanded');
-        revenueCalculator.classList.toggle('shrunk');
+        toggleScreens(revenueCalculator, smsSimulator);
+    });
+
+    function toggleScreens(expandScreen, shrinkScreen) {
+        console.log('Before toggle - Expand:', expandScreen.classList.toString());
+        console.log('Before toggle - Shrink:', shrinkScreen.classList.toString());
+        
+        expandScreen.classList.remove('shrunk');
+        expandScreen.classList.add('expanded');
+        shrinkScreen.classList.remove('expanded');
+        shrinkScreen.classList.add('shrunk');
+        
         toggleSmsButton.classList.toggle('active');
         toggleCalculatorButton.classList.toggle('active');
-        console.log('After toggle - SMS:', smsSimulator.classList.toString());
-        console.log('After toggle - Calculator:', revenueCalculator.classList.toString());
-    });
+        
+        console.log('After toggle - Expand:', expandScreen.classList.toString());
+        console.log('After toggle - Shrink:', shrinkScreen.classList.toString());
+    }
 
     // Handle Calculate button click
     calculateBtn.addEventListener('click', calculateRevenue);
