@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const startButton = document.getElementById('start-button');
-    const revenueCalculatorButton = document.getElementById('revenue-calculator-button');
-    const revenueCalculatorForm = document.getElementById('revenue-calculator-form');
     const calculateBtn = document.getElementById('calculateBtn');
     const results = document.getElementById('results');
+    const toggleSmsButton = document.getElementById('toggle-sms');
+    const toggleCalculatorButton = document.getElementById('toggle-calculator');
+    const smsSimulator = document.getElementById('sms-simulator');
+    const revenueCalculator = document.getElementById('revenue-calculator');
 
     console.log('Start button initialized:', startButton);
 
@@ -65,9 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle Revenue Calculator button click
-    revenueCalculatorButton.addEventListener('click', () => {
-        revenueCalculatorForm.classList.toggle('hidden');
+    // Handle toggle buttons
+    toggleSmsButton.addEventListener('click', () => {
+        smsSimulator.classList.remove('hidden');
+        revenueCalculator.classList.add('hidden');
+        toggleSmsButton.classList.add('bg-orange-500', 'text-white');
+        toggleSmsButton.classList.remove('bg-yellow-400', 'text-[#141E33]');
+        toggleCalculatorButton.classList.add('bg-yellow-400', 'text-[#141E33]');
+        toggleCalculatorButton.classList.remove('bg-orange-500', 'text-white');
+    });
+
+    toggleCalculatorButton.addEventListener('click', () => {
+        smsSimulator.classList.add('hidden');
+        revenueCalculator.classList.remove('hidden');
+        toggleSmsButton.classList.add('bg-yellow-400', 'text-[#141E33]');
+        toggleSmsButton.classList.remove('bg-orange-500', 'text-white');
+        toggleCalculatorButton.classList.add('bg-orange-500', 'text-white');
+        toggleCalculatorButton.classList.remove('bg-yellow-400', 'text-[#141E33]');
     });
 
     // Handle Calculate button click
