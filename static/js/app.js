@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const revenueCalculator = document.getElementById('revenue-calculator');
 
     console.log('Start button initialized:', startButton);
+    console.log('Toggle SMS button:', toggleSmsButton);
+    console.log('Toggle Calculator button:', toggleCalculatorButton);
+    console.log('SMS Simulator:', smsSimulator);
+    console.log('Revenue Calculator:', revenueCalculator);
 
     // Add initial classes to the screens
     smsSimulator.classList.add('expanded');
@@ -73,21 +77,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle toggle buttons
     toggleSmsButton.addEventListener('click', () => {
+        console.log('SMS button clicked');
+        console.log('Before toggle - SMS:', smsSimulator.classList.toString());
+        console.log('Before toggle - Calculator:', revenueCalculator.classList.toString());
         smsSimulator.classList.toggle('expanded');
         smsSimulator.classList.toggle('shrunk');
         revenueCalculator.classList.toggle('expanded');
         revenueCalculator.classList.toggle('shrunk');
         toggleSmsButton.classList.toggle('active');
         toggleCalculatorButton.classList.toggle('active');
+        console.log('After toggle - SMS:', smsSimulator.classList.toString());
+        console.log('After toggle - Calculator:', revenueCalculator.classList.toString());
     });
 
     toggleCalculatorButton.addEventListener('click', () => {
+        console.log('Calculator button clicked');
+        console.log('Before toggle - SMS:', smsSimulator.classList.toString());
+        console.log('Before toggle - Calculator:', revenueCalculator.classList.toString());
         smsSimulator.classList.toggle('expanded');
         smsSimulator.classList.toggle('shrunk');
         revenueCalculator.classList.toggle('expanded');
         revenueCalculator.classList.toggle('shrunk');
         toggleSmsButton.classList.toggle('active');
         toggleCalculatorButton.classList.toggle('active');
+        console.log('After toggle - SMS:', smsSimulator.classList.toString());
+        console.log('After toggle - Calculator:', revenueCalculator.classList.toString());
     });
 
     // Handle Calculate button click
