@@ -170,6 +170,11 @@ a:hover {
     margin-bottom: 15px;
     border: 1px solid #d1d5db;
     border-radius: 4px;
+    color: #141E33; /* Dark text color */
+}
+
+#revenue-calculator-form input::placeholder {
+    color: #9ca3af; /* Light gray color for placeholder text */
 }
 
 #results {
