@@ -187,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const appointmentsScheduled = Math.round(numLeads * appointmentRate);
         const potentialRevenue = appointmentsScheduled * closeRate * avgRevenue;
 
-        document.getElementById('appointmentsScheduled').textContent = `Appointments Scheduled: ${appointmentsScheduled}`;
-        document.getElementById('potentialRevenue').textContent = `Potential Revenue: $${potentialRevenue.toFixed(2)}`;
+        document.getElementById('appointmentsScheduled').textContent = `Appointments Scheduled: ${appointmentsScheduled.toLocaleString()}`;
+        document.getElementById('potentialRevenue').textContent = `Potential Revenue: $${potentialRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         results.classList.remove('hidden');
     }
 });
