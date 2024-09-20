@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Revenue Calculator:', revenueCalculator);
     console.log('Screen Container:', screenContainer);
 
-    smsSimulator.classList.add('expanded');
-    revenueCalculator.classList.add('shrunk');
+    smsSimulator.classList.add('flex-grow', 'opacity-100', 'w-3/4');
+    revenueCalculator.classList.add('flex-grow-0', 'opacity-70', 'w-1/4');
 
     fetch('/get_assistants')
         .then(response => response.json())
@@ -87,10 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Before toggle - Expand:', expandScreen.classList.toString());
         console.log('Before toggle - Shrink:', shrinkScreen.classList.toString());
         
-        expandScreen.classList.remove('shrunk');
-        expandScreen.classList.add('expanded');
-        shrinkScreen.classList.remove('expanded');
-        shrinkScreen.classList.add('shrunk');
+        expandScreen.classList.remove('flex-grow-0', 'opacity-70', 'w-1/4');
+        expandScreen.classList.add('flex-grow', 'opacity-100', 'w-3/4');
+        
+        shrinkScreen.classList.remove('flex-grow', 'opacity-100', 'w-3/4');
+        shrinkScreen.classList.add('flex-grow-0', 'opacity-70', 'w-1/4');
         
         toggleSmsButton.classList.toggle('active');
         toggleCalculatorButton.classList.toggle('active');
