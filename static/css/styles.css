@@ -16,21 +16,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toggle-btn {
-    background-color: #FD4C00;
+    background-color: #4A5568;
     color: white;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
 }
 
 .toggle-btn:hover {
-    background-color: #e64400;
+    background-color: #2D3748;
 }
 
 .toggle-btn.active {
@@ -43,8 +43,33 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 0.5rem;
 }
 
+.screen-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.screen {
+    transition: all 0.3s ease;
+    background-color: #1A202C;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.expanded {
+    width: 70%;
+    opacity: 1;
+}
+
+.shrunk {
+    width: 25%;
+    opacity: 0.7;
+}
+
 #chat-container {
-    height: calc(100vh - 250px);
+    height: calc(100vh - 350px);
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -118,7 +143,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .smartphone-frame {
     position: relative;
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
     height: 640px;
     margin: auto;
     border: 16px #374151 solid;
@@ -174,7 +200,6 @@ a:hover {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
-    margin-top: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

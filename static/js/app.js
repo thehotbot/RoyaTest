@@ -69,15 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle toggle buttons
     toggleSmsButton.addEventListener('click', () => {
-        smsSimulator.classList.remove('hidden');
-        revenueCalculator.classList.add('hidden');
+        smsSimulator.classList.remove('shrunk');
+        smsSimulator.classList.add('expanded');
+        revenueCalculator.classList.remove('expanded');
+        revenueCalculator.classList.add('shrunk');
         toggleSmsButton.classList.add('active');
         toggleCalculatorButton.classList.remove('active');
     });
 
     toggleCalculatorButton.addEventListener('click', () => {
-        smsSimulator.classList.add('hidden');
-        revenueCalculator.classList.remove('hidden');
+        smsSimulator.classList.remove('expanded');
+        smsSimulator.classList.add('shrunk');
+        revenueCalculator.classList.remove('shrunk');
+        revenueCalculator.classList.add('expanded');
         toggleSmsButton.classList.remove('active');
         toggleCalculatorButton.classList.add('active');
     });
