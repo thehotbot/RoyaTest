@@ -8,6 +8,41 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
 }
 
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.toggle-btn {
+    background-color: #FD4C00;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-btn:hover {
+    background-color: #e64400;
+}
+
+.toggle-btn.active {
+    background-color: #fcba04;
+    color: #141E33;
+    transform: scale(1.05);
+}
+
+.toggle-btn svg {
+    margin-right: 0.5rem;
+}
+
 #chat-container {
     height: calc(100vh - 250px);
     display: flex;
@@ -61,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
 }
 
-#start-button, #send-button, #revenue-calculator-button, #calculateBtn {
+#start-button, #send-button, #calculateBtn {
     background-color: #FD4C00;
     color: white;
     transition: background-color 0.3s ease;
@@ -72,22 +107,13 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-#start-button:hover, #send-button:hover, #revenue-calculator-button:hover, #calculateBtn:hover {
+#start-button:hover, #send-button:hover, #calculateBtn:hover {
     background-color: #e64400;
 }
 
 #start-button:disabled {
     background-color: #9ca3af;
     cursor: not-allowed;
-}
-
-#revenue-calculator-button {
-    background-color: #fcba04;
-    color: #141E33;
-}
-
-#revenue-calculator-button:hover {
-    background-color: #e6a800;
 }
 
 .smartphone-frame {
@@ -144,7 +170,7 @@ a:hover {
     color: #e64400;
 }
 
-#revenue-calculator-form {
+#revenue-calculator {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
@@ -152,29 +178,29 @@ a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#revenue-calculator-form h2 {
+#revenue-calculator h2 {
     color: #141E33;
     margin-bottom: 15px;
 }
 
-#revenue-calculator-form label {
+#revenue-calculator label {
     display: block;
     margin-bottom: 5px;
     color: #4b5563;
 }
 
-#revenue-calculator-form input,
-#revenue-calculator-form select {
+#revenue-calculator input,
+#revenue-calculator select {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #d1d5db;
     border-radius: 4px;
-    color: #141E33; /* Dark text color */
+    color: #141E33;
 }
 
-#revenue-calculator-form input::placeholder {
-    color: #9ca3af; /* Light gray color for placeholder text */
+#revenue-calculator input::placeholder {
+    color: #9ca3af;
 }
 
 #results {

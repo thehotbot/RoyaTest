@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentAssistantId = event.target.value;
         currentAssistantName = event.target.options[event.target.selectedIndex].text;
         if (currentAssistantId) {
-            chatContainer.innerHTML = ''; // Clear previous messages only when a new assistant is selected
+            chatContainer.innerHTML = '';
             createNewThread();
             startButton.disabled = false;
         } else {
@@ -71,19 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSmsButton.addEventListener('click', () => {
         smsSimulator.classList.remove('hidden');
         revenueCalculator.classList.add('hidden');
-        toggleSmsButton.classList.add('bg-orange-500', 'text-white');
-        toggleSmsButton.classList.remove('bg-yellow-400', 'text-[#141E33]');
-        toggleCalculatorButton.classList.add('bg-yellow-400', 'text-[#141E33]');
-        toggleCalculatorButton.classList.remove('bg-orange-500', 'text-white');
+        toggleSmsButton.classList.add('active');
+        toggleCalculatorButton.classList.remove('active');
     });
 
     toggleCalculatorButton.addEventListener('click', () => {
         smsSimulator.classList.add('hidden');
         revenueCalculator.classList.remove('hidden');
-        toggleSmsButton.classList.add('bg-yellow-400', 'text-[#141E33]');
-        toggleSmsButton.classList.remove('bg-orange-500', 'text-white');
-        toggleCalculatorButton.classList.add('bg-orange-500', 'text-white');
-        toggleCalculatorButton.classList.remove('bg-yellow-400', 'text-[#141E33]');
+        toggleSmsButton.classList.remove('active');
+        toggleCalculatorButton.classList.add('active');
     });
 
     // Handle Calculate button click
