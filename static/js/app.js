@@ -12,20 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
     const calculateBtn = document.getElementById('calculateBtn');
     const results = document.getElementById('results');
-    const toggleSmsButton = document.getElementById('toggle-sms');
     const toggleCalculatorButton = document.getElementById('toggle-calculator');
     const smsSimulator = document.getElementById('sms-simulator');
     const revenueCalculator = document.getElementById('revenue-calculator');
-    const screenContainer = document.getElementById('screen-container');
-
-    console.log('Toggle SMS button:', toggleSmsButton);
-    console.log('Toggle Calculator button:', toggleCalculatorButton);
-    console.log('SMS Simulator:', smsSimulator);
-    console.log('Revenue Calculator:', revenueCalculator);
-    console.log('Screen Container:', screenContainer);
-
-    smsSimulator.classList.add('expanded');
-    revenueCalculator.classList.add('shrunk');
 
     fetch('/get_assistants')
         .then(response => response.json())
@@ -72,27 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    toggleSmsButton.addEventListener('click', () => {
-        console.log('SMS button clicked');
-        toggleScreens(smsSimulator, revenueCalculator);
-    });
-
     toggleCalculatorButton.addEventListener('click', () => {
-        console.log('Calculator button clicked');
-        toggleScreens(revenueCalculator, smsSimulator);
+        smsSimulator.classList.toggle('hidden');
+        revenueCalculator.classList.toggle('hidden');
     });
-
-    function toggleScreens(expandScreen, shrinkScreen) {
-        console.log('toggleScreens function called');
-        
-        expandScreen.classList.remove('shrunk');
-        expandScreen.classList.add('expanded');
-        shrinkScreen.classList.remove('expanded');
-        shrinkScreen.classList.add('shrunk');
-        
-        toggleSmsButton.classList.toggle('active');
-        toggleCalculatorButton.classList.toggle('active');
-    }
 
     calculateBtn.addEventListener('click', calculateRevenue);
 

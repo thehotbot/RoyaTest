@@ -8,66 +8,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
 }
 
-.toggle-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.toggle-btn {
-    background-color: #4A5568;
-    color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.toggle-btn:hover {
-    background-color: #2D3748;
-}
-
-.toggle-btn.active {
-    background-color: #FD4C00;
-    color: white;
-}
-
-.toggle-btn svg {
-    margin-right: 0.5rem;
-}
-
-.screen-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.screen {
-    transition: all 0.3s ease-in-out;
-}
-
-.expanded {
-    flex-grow: 1;
-    width: 70%;
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
-}
-
-.shrunk {
-    flex-grow: 0;
-    width: 25%;
-    opacity: 0.7;
-    transition: all 0.3s ease-in-out;
-}
-
 #chat-container {
     height: calc(100vh - 350px);
     display: flex;
@@ -121,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
 }
 
-#start-button, #send-button, #calculateBtn {
+#start-button, #send-button, #calculateBtn, #toggle-calculator {
     background-color: #FD4C00;
     color: white;
     transition: background-color 0.3s ease;
@@ -132,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-#start-button:hover, #send-button:hover, #calculateBtn:hover {
+#start-button:hover, #send-button:hover, #calculateBtn:hover, #toggle-calculator:hover {
     background-color: #e64400;
 }
 
@@ -239,4 +179,12 @@ a:hover {
 #potentialRevenue {
     font-weight: bold;
     color: #141E33;
+}
+
+#toggle-calculator {
+    background-color: #4A5568;
+}
+
+#toggle-calculator:hover {
+    background-color: #2D3748;
 }
