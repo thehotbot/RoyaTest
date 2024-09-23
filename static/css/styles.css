@@ -205,22 +205,23 @@ a:hover {
     width: 100%;
 }
 
-.flex-container {
+.flex-col {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1rem;
+    flex-direction: column;
 }
 
-#assistant-select {
-    width: 70%;
+.items-center {
+    align-items: center;
+}
+
+.max-w-md {
+    max-width: 28rem;
 }
 
 #message-input {
-    width: calc(100% - 100px);
+    width: calc(100% - 80px);
 }
 
 #send-button {
-    width: 100px;
+    width: 80px;
 }
