@@ -107,7 +107,7 @@
 }
 
 /*
-! tailwindcss v3.4.12 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.13 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -637,12 +637,24 @@ video {
   height: 100vh;
 }
 
+.w-11\/12 {
+  width: 91.666667%;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .w-96 {
   width: 24rem;
 }
 
 .w-full {
   width: 100%;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 .flex-grow {
@@ -663,12 +675,22 @@ video {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .overflow-y-auto {
@@ -711,6 +733,16 @@ video {
   background-color: rgb(20 30 51 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#4A5568\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 85 104 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#FD4C00\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 76 0 / var(--tw-bg-opacity));
+}
+
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -724,11 +756,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -761,6 +788,11 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .text-center {
@@ -881,7 +913,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #chat-container {
-  height: calc(100vh - 250px);
+  height: calc(100vh - 350px);
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -933,7 +965,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
-#start-button, #send-button, #revenue-calculator-button, #calculateBtn {
+#start-button, #send-button, #calculateBtn, #toggle-calculator {
   background-color: #FD4C00;
   color: white;
   transition: background-color 0.3s ease;
@@ -944,7 +976,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-#start-button:hover, #send-button:hover, #revenue-calculator-button:hover, #calculateBtn:hover {
+#start-button:hover, #send-button:hover, #calculateBtn:hover, #toggle-calculator:hover {
   background-color: #e64400;
 }
 
@@ -953,18 +985,10 @@ h1, h2, h3, h4, h5, h6 {
   cursor: not-allowed;
 }
 
-#revenue-calculator-button {
-  background-color: #fcba04;
-  color: #141E33;
-}
-
-#revenue-calculator-button:hover {
-  background-color: #e6a800;
-}
-
 .smartphone-frame {
   position: relative;
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
   height: 640px;
   margin: auto;
   border: 16px #374151 solid;
@@ -1016,44 +1040,50 @@ a:hover {
   color: #e64400;
 }
 
-#revenue-calculator-form {
+#revenue-calculator {
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
-  margin-top: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#revenue-calculator-form h2 {
+#revenue-calculator h2 {
   color: #141E33;
   margin-bottom: 15px;
 }
 
-#revenue-calculator-form label {
+#revenue-calculator form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#revenue-calculator label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.25rem;
   color: #4b5563;
 }
 
-#revenue-calculator-form input,
-#revenue-calculator-form select {
+#revenue-calculator input,
+#revenue-calculator select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
+  padding: 0.5rem;
+  margin-bottom: 0;
   border: 1px solid #d1d5db;
   border-radius: 4px;
   color: #141E33;
-  /* Dark text color */
 }
 
-#revenue-calculator-form input::-moz-placeholder {
+#revenue-calculator input::-moz-placeholder {
   color: #9ca3af;
-  /* Light gray color for placeholder text */
 }
 
-#revenue-calculator-form input::placeholder {
+#revenue-calculator input::placeholder {
   color: #9ca3af;
-  /* Light gray color for placeholder text */
+}
+
+#calculateBtn {
+  margin-top: 1rem;
 }
 
 #results {
@@ -1069,14 +1099,52 @@ a:hover {
   color: #141E33;
 }
 
+#toggle-calculator {
+  background-color: #4A5568;
+}
+
+#toggle-calculator:hover {
+  background-color: #2D3748;
+}
+
+/* New styles for the updated layout */
+
+.container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+#message-input {
+  width: 50%;
+  /* Reduced from 100% to 50% */
+}
+
+#send-button {
+  width: 120px;
+  /* Adjusted to maintain layout */
+}
+
+.hover\:bg-\[\#2D3748\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 55 72 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-orange-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(234 88 12 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-yellow-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
 .hover\:text-orange-700:hover {

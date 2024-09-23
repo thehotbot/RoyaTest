@@ -219,9 +219,9 @@ a:hover {
 }
 
 #message-input {
-    width: calc(100% - 80px);
+    width: 50%; /* Reduced from 100% to 50% */
 }
 
 #send-button {
-    width: 80px;
+    width: 120px; /* Adjusted to maintain layout */
 }
