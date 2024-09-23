@@ -198,3 +198,29 @@ a:hover {
 #toggle-calculator:hover {
     background-color: #2D3748;
 }
+
+/* New styles for the updated layout */
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#assistant-select {
+    width: 70%;
+}
+
+#message-input {
+    width: calc(100% - 100px);
+}
+
+#send-button {
+    width: 100px;
+}

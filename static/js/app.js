@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleCalculatorButton.addEventListener('click', () => {
         smsSimulator.classList.toggle('hidden');
         revenueCalculator.classList.toggle('hidden');
+        toggleCalculatorButton.textContent = smsSimulator.classList.contains('hidden') ? 'SMS Simulator' : 'Revenue Calculator';
     });
 
     calculateBtn.addEventListener('click', calculateRevenue);
