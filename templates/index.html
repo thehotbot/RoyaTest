@@ -33,28 +33,30 @@
         <div id="revenue-calculator" class="w-full mt-4 hidden">
             <div class="bg-white p-4 rounded-lg">
                 <h2 class="text-xl font-bold mb-4 text-[#141E33]">Revenue Calculator</h2>
-                <div class="mb-4">
-                    <label for="numLeads" class="block text-sm font-medium text-gray-700">Number of Old Leads:</label>
-                    <input type="number" id="numLeads" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" placeholder="e.g. 500">
-                </div>
-                <div class="mb-4">
-                    <label for="leadAge" class="block text-sm font-medium text-gray-700">Age of Leads:</label>
-                    <select id="leadAge" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
-                        <option value="less7">Less than 7 days</option>
-                        <option value="7to30">7 to 30 days</option>
-                        <option value="30to90">30 to 90 days</option>
-                        <option value="more90">90+ days</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="closeRate" class="block text-sm font-medium text-gray-700">Avg Close Rate (%):</label>
-                    <input type="number" id="closeRate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" placeholder="e.g. 25">
-                </div>
-                <div class="mb-4">
-                    <label for="avgRevenue" class="block text-sm font-medium text-gray-700">Average Revenue Per Customer ($):</label>
-                    <input type="number" id="avgRevenue" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" placeholder="e.g. 1000">
-                </div>
-                <button id="calculateBtn" class="w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300">Calculate Potential Revenue</button>
+                <form class="space-y-4">
+                    <div>
+                        <label for="numLeads" class="block text-sm font-medium text-gray-700">Number of Old Leads:</label>
+                        <input type="number" id="numLeads" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" placeholder="e.g. 500">
+                    </div>
+                    <div>
+                        <label for="leadAge" class="block text-sm font-medium text-gray-700">Age of Leads:</label>
+                        <select id="leadAge" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+                            <option value="less7">Less than 7 days</option>
+                            <option value="7to30">7 to 30 days</option>
+                            <option value="30to90">30 to 90 days</option>
+                            <option value="more90">90+ days</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="closeRate" class="block text-sm font-medium text-gray-700">Avg Close Rate (%):</label>
+                        <input type="number" id="closeRate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" placeholder="e.g. 25">
+                    </div>
+                    <div>
+                        <label for="avgRevenue" class="block text-sm font-medium text-gray-700">Average Revenue Per Customer ($):</label>
+                        <input type="number" id="avgRevenue" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" placeholder="e.g. 1000">
+                    </div>
+                    <button id="calculateBtn" class="w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300">Calculate Potential Revenue</button>
+                </form>
                 <div id="results" class="mt-4 hidden">
                     <div id="appointmentsScheduled" class="text-lg font-semibold text-[#141E33]"></div>
                     <div id="potentialRevenue" class="text-lg font-semibold text-[#141E33]"></div>
