@@ -11,20 +11,27 @@
     <div class="container mx-auto px-4 flex flex-col items-center">
         <h1 class="text-4xl font-bold mb-8 text-center text-yellow-400 font-orbitron">The Hot Bot Demo</h1>
         
-        <div class="w-full max-w-2xl mb-8">
-            <div class="input-group">
-                <select id="assistant-select" class="block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
-                    <option value="">Select an assistant</option>
-                </select>
-                <button id="start-button" class="bg-[#FD4C00] text-white px-4 py-2 rounded-md disabled:opacity-50 hover:opacity-90 transition duration-300">Start</button>
-            </div>
+        <div class="toggle-switch mb-8">
+            <input type="checkbox" id="toggle-calculator" class="hidden">
+            <label for="toggle-calculator" class="flex items-center cursor-pointer">
+                <span class="mr-3 text-white">SMS Simulator</span>
+                <div class="relative">
+                    <div class="w-10 h-6 bg-gray-400 rounded-full shadow-inner"></div>
+                    <div class="dot absolute w-4 h-4 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                </div>
+                <span class="ml-3 text-white">Revenue Calculator</span>
+            </label>
         </div>
         
-        <button id="toggle-calculator" class="mb-8 transition-all duration-300 ease-in-out transform hover:scale-105">
-            Revenue Calculator
-        </button>
-        
         <div id="sms-simulator" class="w-full max-w-md">
+            <div class="w-full max-w-2xl mb-8">
+                <div class="input-group">
+                    <select id="assistant-select" class="block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+                        <option value="">Select an assistant</option>
+                    </select>
+                    <button id="start-button" class="bg-[#FD4C00] text-white px-4 py-2 rounded-md disabled:opacity-50 hover:opacity-90 transition duration-300">Start</button>
+                </div>
+            </div>
             <div class="smartphone-frame mb-4">
                 <div id="chat-container" class="h-full bg-white p-4 overflow-y-auto">
                     <!-- Chat messages will be inserted here -->

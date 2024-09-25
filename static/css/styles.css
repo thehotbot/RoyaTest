@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 6px;
     padding: 10px;
     font-size: 0.95rem;
+    color: #141E33;
 }
 
 #start-button, #send-button, #calculateBtn {
@@ -82,24 +83,17 @@ h1, h2, h3, h4, h5, h6 {
     cursor: not-allowed;
 }
 
-#toggle-calculator {
-    background-color: #fcba04;
-    color: #141E33;
-    font-weight: bold;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.toggle-switch input[type="checkbox"] {
+    display: none;
 }
 
-#toggle-calculator:hover {
-    background-color: #ffd700;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.toggle-switch .dot {
+    transition: all 0.3s ease-in-out;
+}
+
+.toggle-switch input[type="checkbox"]:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #FD4C00;
 }
 
 .smartphone-frame {

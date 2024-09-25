@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
     const calculateBtn = document.getElementById('calculateBtn');
     const results = document.getElementById('results');
-    const toggleCalculatorButton = document.getElementById('toggle-calculator');
+    const toggleCalculator = document.getElementById('toggle-calculator');
     const smsSimulator = document.getElementById('sms-simulator');
     const revenueCalculator = document.getElementById('revenue-calculator');
 
@@ -61,16 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    toggleCalculatorButton.addEventListener('click', () => {
-        const isShowingCalculator = smsSimulator.style.display === 'none';
-        
-        smsSimulator.style.display = isShowingCalculator ? 'block' : 'none';
-        revenueCalculator.style.display = isShowingCalculator ? 'none' : 'block';
-        
-        toggleCalculatorButton.textContent = isShowingCalculator ? 'Revenue Calculator' : 'SMS Simulator';
-        
-        if (!isShowingCalculator && results.textContent.trim() !== '') {
-            results.style.display = 'block';
+    toggleCalculator.addEventListener('change', () => {
+        if (toggleCalculator.checked) {
+            smsSimulator.style.display = 'none';
+            revenueCalculator.style.display = 'block';
+        } else {
+            smsSimulator.style.display = 'block';
+            revenueCalculator.style.display = 'none';
         }
     });
 

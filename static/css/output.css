@@ -592,6 +592,22 @@ video {
   position: static;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.-left-1 {
+  left: -0.25rem;
+}
+
+.-top-1 {
+  top: -0.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -609,8 +625,16 @@ video {
   margin-bottom: 1.5rem;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .mt-1 {
@@ -619,6 +643,14 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .block {
@@ -633,16 +665,32 @@ video {
   display: none;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .h-screen {
   height: 100vh;
 }
 
-.w-11\/12 {
-  width: 91.666667%;
+.min-h-screen {
+  min-height: 100vh;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .w-96 {
@@ -653,12 +701,20 @@ video {
   width: 100%;
 }
 
+.max-w-2xl {
+  max-width: 42rem;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .appearance-none {
@@ -687,10 +743,10 @@ video {
   justify-content: space-between;
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-y-auto {
@@ -699,6 +755,10 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .rounded-lg {
@@ -733,14 +793,19 @@ video {
   background-color: rgb(20 30 51 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#4A5568\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 85 104 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#FD4C00\] {
   --tw-bg-opacity: 1;
   background-color: rgb(253 76 0 / var(--tw-bg-opacity));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-gray-900 {
@@ -764,6 +829,10 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .p-8 {
@@ -790,9 +859,14 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .text-center {
@@ -804,9 +878,9 @@ video {
   line-height: 2rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-lg {
@@ -876,6 +950,18 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-inner {
+  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -924,12 +1010,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .message {
   max-width: 70%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 12px;
   border-radius: 18px;
   word-wrap: break-word;
   font-size: 0.95rem;
   line-height: 1.5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-message {
@@ -963,9 +1050,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   padding: 10px;
   font-size: 0.95rem;
+  color: #141E33;
 }
 
-#start-button, #send-button, #calculateBtn, #toggle-calculator {
+#start-button, #send-button, #calculateBtn {
   background-color: #FD4C00;
   color: white;
   transition: background-color 0.3s ease;
@@ -976,13 +1064,26 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-#start-button:hover, #send-button:hover, #calculateBtn:hover, #toggle-calculator:hover {
+#start-button:hover, #send-button:hover, #calculateBtn:hover {
   background-color: #e64400;
 }
 
 #start-button:disabled {
   background-color: #9ca3af;
   cursor: not-allowed;
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-switch .dot {
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-switch input[type="checkbox"]:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #FD4C00;
 }
 
 .smartphone-frame {
@@ -1028,6 +1129,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   color: #fcba04;
   font-weight: 700;
+  margin-bottom: 30px;
 }
 
 a {
@@ -1049,29 +1151,32 @@ a:hover {
 
 #revenue-calculator h2 {
   color: #141E33;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #revenue-calculator form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 #revenue-calculator label {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   color: #4b5563;
+  font-weight: 600;
 }
 
 #revenue-calculator input,
 #revenue-calculator select {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   margin-bottom: 0;
   border: 1px solid #d1d5db;
   border-radius: 4px;
   color: #141E33;
+  font-size: 1rem;
 }
 
 #revenue-calculator input::-moz-placeholder {
@@ -1083,7 +1188,10 @@ a:hover {
 }
 
 #calculateBtn {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 #results {
@@ -1091,27 +1199,21 @@ a:hover {
   padding: 15px;
   background-color: #f3f4f6;
   border-radius: 4px;
+  text-align: center;
 }
 
 #appointmentsScheduled,
 #potentialRevenue {
   font-weight: bold;
   color: #141E33;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
 }
-
-#toggle-calculator {
-  background-color: #4A5568;
-}
-
-#toggle-calculator:hover {
-  background-color: #2D3748;
-}
-
-/* New styles for the updated layout */
 
 .container {
   max-width: 800px;
   width: 100%;
+  padding: 20px;
 }
 
 .flex-col {
@@ -1128,18 +1230,25 @@ a:hover {
 }
 
 #message-input {
-  width: 50%;
-  /* Reduced from 100% to 50% */
+  width: calc(100% - 120px);
 }
 
 #send-button {
   width: 120px;
-  /* Adjusted to maintain layout */
 }
 
-.hover\:bg-\[\#2D3748\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(45 55 72 / var(--tw-bg-opacity));
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#assistant-select {
+  flex-grow: 1;
+}
+
+#start-button {
+  width: 120px;
 }
 
 .hover\:bg-orange-600:hover {
