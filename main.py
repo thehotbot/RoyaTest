@@ -8,7 +8,7 @@ from openai import OpenAI
 from openai_helpers import get_assistants, create_thread, add_message_to_thread, run_assistant, get_messages
 
 app = Flask(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
@@ -23,7 +23,7 @@ if not LOGIN_PASSWORD:
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Session configuration
-app.config['SECRET_KEY'] = 'your_secret_key_here'  # Replace with a real secret key
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'fallback_secret_key')  # Use environment variable for secret key
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
@@ -77,19 +77,19 @@ def send_message():
         message = data['message']
         assistant_id = data['assistant_id']
 
-        logging.debug(f"Received message: {message} for thread: {thread_id} and assistant: {assistant_id}")
+        logging.info(f"Received message for thread: {thread_id} and assistant: {assistant_id}")
 
         # Add user message to thread
         user_message = add_message_to_thread(client, thread_id, message)
-        logging.debug(f"Added user message: {user_message}")
+        logging.info(f"Added user message: {user_message}")
 
         # Run the assistant
         run = run_assistant(client, thread_id, assistant_id)
-        logging.debug(f"Assistant run completed: {run}")
+        logging.info(f"Assistant run completed: {run}")
 
         # Get all messages
         messages = get_messages(client, thread_id)
-        logging.debug(f"All messages retrieved: {messages}")
+        logging.info(f"All messages retrieved: {len(messages)}")
 
         # Get the last assistant message
         last_assistant_message = next((msg for msg in messages if msg['role'] == 'assistant'), None)
@@ -98,13 +98,16 @@ def send_message():
             logging.error("No assistant message found in the thread")
             return jsonify({"error": "No response from assistant"}), 500
 
-        logging.debug(f"Last assistant message: {last_assistant_message}")
+        logging.info(f"Last assistant message retrieved")
 
         return jsonify({"message": last_assistant_message})
 
     except Exception as e:
-        logging.error(f"Error in send_message: {str(e)}")
+        logging.exception(f"Error in send_message: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 3000))
+    debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
+    logging.info(f"Starting Flask server on port {port} with debug={debug}")
+    app.run(host='0.0.0.0', port=port, debug=debug)
