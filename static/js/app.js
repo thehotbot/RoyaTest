@@ -62,13 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     toggleCalculatorButton.addEventListener('click', () => {
-        smsSimulator.classList.toggle('hidden');
-        revenueCalculator.classList.toggle('hidden');
-        toggleCalculatorButton.textContent = smsSimulator.classList.contains('hidden') ? 'SMS Simulator' : 'Revenue Calculator';
+        const isShowingCalculator = smsSimulator.style.display === 'none';
         
-        // Keep results visible if they've been calculated
-        if (!results.classList.contains('hidden')) {
-            results.style.display = revenueCalculator.classList.contains('hidden') ? 'none' : 'block';
+        smsSimulator.style.display = isShowingCalculator ? 'block' : 'none';
+        revenueCalculator.style.display = isShowingCalculator ? 'none' : 'block';
+        
+        toggleCalculatorButton.textContent = isShowingCalculator ? 'Revenue Calculator' : 'SMS Simulator';
+        
+        // Ensure results are visible when showing the calculator
+        if (!isShowingCalculator) {
+            results.style.display = 'block';
         }
     });
 
@@ -196,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('appointmentsScheduled').textContent = `Appointments Scheduled: ${appointmentsScheduled.toLocaleString()}`;
         document.getElementById('potentialRevenue').textContent = `Potential Revenue: $${potentialRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        results.classList.remove('hidden');
         results.style.display = 'block';
     }
 });
