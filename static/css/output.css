@@ -951,8 +951,8 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   padding: 10px;
   border: 1px solid #e5e7eb;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background-color: #f8fafc;
+  border-radius: 8px;
 }
 
 .message {
@@ -963,7 +963,6 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
   font-size: 0.95rem;
   line-height: 1.5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-message {
@@ -975,7 +974,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .assistant-message {
   align-self: flex-start;
-  background-color: #f3f4f6;
+  background-color: #e2e8f0;
   color: #1f2937;
   margin-right: auto;
 }
@@ -1029,6 +1028,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   border: none;
   font-size: 0.95rem;
+  margin: 0 5px;
 }
 
 .toggle-btn.active {
@@ -1046,8 +1046,7 @@ h1, h2, h3, h4, h5, h6 {
   border-top-width: 60px;
   border-bottom-width: 60px;
   border-radius: 36px;
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f8fafc;
 }
 
 .smartphone-frame:before {
@@ -1096,7 +1095,6 @@ a:hover {
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #revenue-calculator h2 {
