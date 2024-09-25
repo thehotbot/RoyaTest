@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         toggleCalculatorButton.textContent = isShowingCalculator ? 'Revenue Calculator' : 'SMS Simulator';
         
-        // Ensure results are visible when showing the calculator
-        if (!isShowingCalculator) {
+        if (!isShowingCalculator && results.textContent.trim() !== '') {
             results.style.display = 'block';
         }
     });
@@ -158,7 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 
-    function calculateRevenue() {
+    function calculateRevenue(event) {
+        event.preventDefault();
+        console.log('Calculate button clicked');
+
         const numLeads = parseFloat(document.getElementById('numLeads').value);
         const leadAge = document.getElementById('leadAge').value;
         const closeRate = parseFloat(document.getElementById('closeRate').value) / 100;
