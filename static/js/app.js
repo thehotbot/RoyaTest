@@ -65,6 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
         smsSimulator.classList.toggle('hidden');
         revenueCalculator.classList.toggle('hidden');
         toggleCalculatorButton.textContent = smsSimulator.classList.contains('hidden') ? 'SMS Simulator' : 'Revenue Calculator';
+        
+        // Keep results visible if they've been calculated
+        if (!results.classList.contains('hidden')) {
+            results.style.display = revenueCalculator.classList.contains('hidden') ? 'none' : 'block';
+        }
     });
 
     calculateBtn.addEventListener('click', calculateRevenue);
@@ -192,5 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('appointmentsScheduled').textContent = `Appointments Scheduled: ${appointmentsScheduled.toLocaleString()}`;
         document.getElementById('potentialRevenue').textContent = `Potential Revenue: $${potentialRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         results.classList.remove('hidden');
+        results.style.display = 'block';
     }
 });
