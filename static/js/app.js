@@ -156,7 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeRate = parseFloat(document.getElementById('closeRate').value) / 100;
         const avgRevenue = parseFloat(document.getElementById('avgRevenue').value);
 
+        console.log('Parsed input values:', { numLeads, leadAge, closeRate, avgRevenue });
+
         if (isNaN(numLeads) || isNaN(closeRate) || isNaN(avgRevenue)) {
+            console.error('Invalid input values detected');
             alert('Please enter valid numbers for all fields.');
             return;
         }
@@ -179,8 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 appointmentRate = 0.1;
         }
 
+        console.log('Appointment rate:', appointmentRate);
+
         const appointmentsScheduled = Math.round(numLeads * appointmentRate);
         const potentialRevenue = appointmentsScheduled * closeRate * avgRevenue;
+
+        console.log('Calculated values:', { appointmentsScheduled, potentialRevenue });
 
         document.getElementById('appointmentsScheduled').textContent = `Appointments Scheduled: ${appointmentsScheduled.toLocaleString()}`;
         document.getElementById('potentialRevenue').textContent = `Potential Revenue: $${potentialRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
