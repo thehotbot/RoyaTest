@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
     const calculateBtn = document.getElementById('calculateBtn');
     const results = document.getElementById('results');
-    const toggleCalculator = document.getElementById('toggle-calculator');
+    const smsSimulatorBtn = document.getElementById('sms-simulator-btn');
+    const revenueCalculatorBtn = document.getElementById('revenue-calculator-btn');
     const smsSimulator = document.getElementById('sms-simulator');
     const revenueCalculator = document.getElementById('revenue-calculator');
 
@@ -61,14 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    toggleCalculator.addEventListener('change', () => {
-        if (toggleCalculator.checked) {
-            smsSimulator.style.display = 'none';
-            revenueCalculator.style.display = 'block';
-        } else {
-            smsSimulator.style.display = 'block';
-            revenueCalculator.style.display = 'none';
-        }
+    smsSimulatorBtn.addEventListener('click', () => {
+        smsSimulator.style.display = 'block';
+        revenueCalculator.style.display = 'none';
+        smsSimulatorBtn.classList.add('active');
+        revenueCalculatorBtn.classList.remove('active');
+    });
+
+    revenueCalculatorBtn.addEventListener('click', () => {
+        smsSimulator.style.display = 'none';
+        revenueCalculator.style.display = 'block';
+        revenueCalculatorBtn.classList.add('active');
+        smsSimulatorBtn.classList.remove('active');
     });
 
     calculateBtn.addEventListener('click', calculateRevenue);

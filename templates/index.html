@@ -11,16 +11,9 @@
     <div class="container mx-auto px-4 flex flex-col items-center">
         <h1 class="text-4xl font-bold mb-8 text-center text-yellow-400 font-orbitron">The Hot Bot Demo</h1>
         
-        <div class="toggle-switch mb-8">
-            <input type="checkbox" id="toggle-calculator" class="hidden">
-            <label for="toggle-calculator" class="flex items-center cursor-pointer">
-                <span class="mr-3 text-white">SMS Simulator</span>
-                <div class="relative">
-                    <div class="w-10 h-6 bg-gray-400 rounded-full shadow-inner"></div>
-                    <div class="dot absolute w-4 h-4 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                </div>
-                <span class="ml-3 text-white">Revenue Calculator</span>
-            </label>
+        <div class="flex justify-center space-x-4 mb-8">
+            <button id="sms-simulator-btn" class="toggle-btn active">SMS Simulator</button>
+            <button id="revenue-calculator-btn" class="toggle-btn">Revenue Calculator</button>
         </div>
         
         <div id="sms-simulator" class="w-full max-w-md">

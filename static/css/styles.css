@@ -83,17 +83,20 @@ h1, h2, h3, h4, h5, h6 {
     cursor: not-allowed;
 }
 
-.toggle-switch input[type="checkbox"] {
-    display: none;
+.toggle-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #374151;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
 }
 
-.toggle-switch .dot {
-    transition: all 0.3s ease-in-out;
-}
-
-.toggle-switch input[type="checkbox"]:checked ~ .dot {
-    transform: translateX(100%);
+.toggle-btn.active {
     background-color: #FD4C00;
+    transform: scale(1.05);
 }
 
 .smartphone-frame {
