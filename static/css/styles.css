@@ -20,12 +20,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .message {
     max-width: 70%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 12px;
     border-radius: 18px;
     word-wrap: break-word;
     font-size: 0.95rem;
     line-height: 1.5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-message {
@@ -61,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
 }
 
-#start-button, #send-button, #calculateBtn, #toggle-calculator {
+#start-button, #send-button, #calculateBtn {
     background-color: #FD4C00;
     color: white;
     transition: background-color 0.3s ease;
@@ -72,13 +73,33 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-#start-button:hover, #send-button:hover, #calculateBtn:hover, #toggle-calculator:hover {
+#start-button:hover, #send-button:hover, #calculateBtn:hover {
     background-color: #e64400;
 }
 
 #start-button:disabled {
     background-color: #9ca3af;
     cursor: not-allowed;
+}
+
+#toggle-calculator {
+    background-color: #fcba04;
+    color: #141E33;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#toggle-calculator:hover {
+    background-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .smartphone-frame {
@@ -124,6 +145,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     color: #fcba04;
     font-weight: 700;
+    margin-bottom: 30px;
 }
 
 a {
@@ -145,29 +167,32 @@ a:hover {
 
 #revenue-calculator h2 {
     color: #141E33;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 #revenue-calculator form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 #revenue-calculator label {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     color: #4b5563;
+    font-weight: 600;
 }
 
 #revenue-calculator input,
 #revenue-calculator select {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 0;
     border: 1px solid #d1d5db;
     border-radius: 4px;
     color: #141E33;
+    font-size: 1rem;
 }
 
 #revenue-calculator input::placeholder {
@@ -175,7 +200,10 @@ a:hover {
 }
 
 #calculateBtn {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #results {
@@ -183,26 +211,21 @@ a:hover {
     padding: 15px;
     background-color: #f3f4f6;
     border-radius: 4px;
+    text-align: center;
 }
 
 #appointmentsScheduled,
 #potentialRevenue {
     font-weight: bold;
     color: #141E33;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
-#toggle-calculator {
-    background-color: #4A5568;
-}
-
-#toggle-calculator:hover {
-    background-color: #2D3748;
-}
-
-/* New styles for the updated layout */
 .container {
     max-width: 800px;
     width: 100%;
+    padding: 20px;
 }
 
 .flex-col {
@@ -219,9 +242,23 @@ a:hover {
 }
 
 #message-input {
-    width: 50%; /* Reduced from 100% to 50% */
+    width: calc(100% - 120px);
 }
 
 #send-button {
-    width: 120px; /* Adjusted to maintain layout */
+    width: 120px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#assistant-select {
+    flex-grow: 1;
+}
+
+#start-button {
+    width: 120px;
 }
