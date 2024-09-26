@@ -18,21 +18,23 @@
         
         <div id="sms-simulator" class="w-full max-w-md">
             <div class="w-full max-w-2xl mb-8">
-                <div class="input-group">
-                    <select id="assistant-select" class="block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+                <div class="input-group flex justify-between items-center">
+                    <select id="assistant-select" class="flex-grow py-2 px-3 border border-gray-300 bg-white rounded-l-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
                         <option value="">Select an assistant</option>
                     </select>
-                    <button id="start-button" class="bg-[#FD4C00] text-white px-4 py-2 rounded-md disabled:opacity-50 hover:opacity-90 transition duration-300">Start</button>
+                    <button id="start-button" class="bg-[#FD4C00] text-white px-4 py-2 rounded-r-md disabled:opacity-50 hover:opacity-90 transition duration-300">Start</button>
                 </div>
             </div>
             <div class="smartphone-frame mb-4">
-                <div id="chat-container" class="h-full bg-white p-4 overflow-y-auto">
-                    <!-- Chat messages will be inserted here -->
+                <div class="phone-screen">
+                    <div id="chat-container" class="h-full bg-white p-4 overflow-y-auto">
+                        <!-- Chat messages will be inserted here -->
+                    </div>
+                    <div class="message-input-container flex">
+                        <input type="text" id="message-input" class="flex-grow border rounded-l-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Type your message..." autocomplete="off">
+                        <button id="send-button" class="bg-[#FD4C00] text-white px-6 py-2 rounded-r-lg hover:opacity-90 transition duration-300">Send</button>
+                    </div>
                 </div>
-            </div>
-            <div class="flex mt-4 w-full">
-                <input type="text" id="message-input" class="flex-grow border rounded-l-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Type your message..." autocomplete="off">
-                <button id="send-button" class="bg-[#FD4C00] text-white px-6 py-2 rounded-r-lg hover:opacity-90 transition duration-300">Send</button>
             </div>
         </div>
         

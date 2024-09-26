@@ -1,11 +1,11 @@
 import os
 import logging
-import time
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_session import Session
-from functools import wraps
+from werkzeug.security import check_password_hash
 from openai import OpenAI
-from openai_helpers import get_assistants, create_thread, add_message_to_thread, run_assistant, get_messages
+import openai_helpers
+from functools import wraps
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -20,12 +20,11 @@ if not LOGIN_PASSWORD:
     logging.error("LOGIN_PASSWORD is not set in the environment variables")
     raise ValueError("LOGIN_PASSWORD is not set")
 
-client = OpenAI(api_key=OPENAI_API_KEY)
-
-# Session configuration
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'fallback_secret_key')  # Use environment variable for secret key
+app.config['SECRET_KEY'] = os.urandom(24)
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
+
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 def login_required(f):
     @wraps(f)
@@ -39,7 +38,7 @@ def login_required(f):
 def login():
     if request.method == 'POST':
         password = request.form.get('password')
-        if password == LOGIN_PASSWORD:
+        if check_password_hash(LOGIN_PASSWORD, password):
             session['authenticated'] = True
             return redirect(url_for('index'))
         else:
@@ -59,13 +58,13 @@ def index():
 @app.route('/get_assistants', methods=['GET'])
 @login_required
 def fetch_assistants():
-    assistants = get_assistants(client)
+    assistants = openai_helpers.get_assistants(client)
     return jsonify(assistants)
 
 @app.route('/create_thread', methods=['POST'])
 @login_required
 def new_thread():
-    thread = create_thread(client)
+    thread = openai_helpers.create_thread(client)
     return jsonify({"thread_id": thread.id})
 
 @app.route('/send_message', methods=['POST'])
@@ -79,19 +78,15 @@ def send_message():
 
         logging.info(f"Received message for thread: {thread_id} and assistant: {assistant_id}")
 
-        # Add user message to thread
-        user_message = add_message_to_thread(client, thread_id, message)
+        user_message = openai_helpers.add_message_to_thread(client, thread_id, message)
         logging.info(f"Added user message: {user_message}")
 
-        # Run the assistant
-        run = run_assistant(client, thread_id, assistant_id)
+        run = openai_helpers.run_assistant(client, thread_id, assistant_id)
         logging.info(f"Assistant run completed: {run}")
 
-        # Get all messages
-        messages = get_messages(client, thread_id)
+        messages = openai_helpers.get_messages(client, thread_id)
         logging.info(f"All messages retrieved: {len(messages)}")
 
-        # Get the last assistant message
         last_assistant_message = next((msg for msg in messages if msg['role'] == 'assistant'), None)
 
         if not last_assistant_message:
@@ -107,7 +102,7 @@ def send_message():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 3000))  # Changed default port to 3000
+    port = int(os.environ.get('PORT', 3001))
     debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
     logging.info(f"Starting Flask server on port {port} with debug={debug}")
     app.run(host='0.0.0.0', port=port, debug=debug)
