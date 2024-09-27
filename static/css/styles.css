@@ -183,6 +183,12 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease;
     margin-bottom: 1rem;
+    color: #141E33;
+}
+
+#revenue-calculator input::placeholder,
+#revenue-calculator select::placeholder {
+    color: #6B7280;
 }
 
 #calculateBtn {

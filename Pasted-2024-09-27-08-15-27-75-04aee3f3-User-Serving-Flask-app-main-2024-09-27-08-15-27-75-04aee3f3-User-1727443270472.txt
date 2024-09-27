@@ -1,0 +1,148 @@
+2024-09-27 08:15:27.75
+04aee3f3
+User
+* Serving Flask app 'main'
+2024-09-27 08:15:27.75
+04aee3f3
+User
+* Debug mode: off
+2024-09-27 08:15:27.76
+04aee3f3
+User
+2024-09-27 13:15:27,768 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+2024-09-27 08:15:27.76
+04aee3f3
+User
+* Running on all addresses (0.0.0.0)
+2024-09-27 08:15:27.76
+04aee3f3
+User
+* Running on http://127.0.0.1:5000
+2024-09-27 08:15:27.76
+04aee3f3
+User
+* Running on http://169.254.8.1:5000
+2024-09-27 08:15:27.76
+04aee3f3
+User
+2024-09-27 13:15:27,768 - werkzeug - INFO - Press CTRL+C to quit
+2024-09-27 08:15:33.04
+04aee3f3
+User
+2024-09-27 13:15:33,047 - werkzeug - INFO - 127.0.0.1 - - [27/Sep/2024 13:15:33] "GET / HTTP/1.1" 302 -
+2024-09-27 08:16:56.80
+da5784c9
+System
+system: received signal terminated
+2024-09-27 08:16:56.80
+da5784c9
+System
+command finished with error [sh -c python main.py]: signal: terminated
+2024-09-27 08:16:56.81
+da5784c9
+System
+main done, exiting
+2024-09-27 08:17:51.10
+04aee3f3
+User
+2024-09-27 13:17:51,102 - werkzeug - INFO - 127.0.0.1 - - [27/Sep/2024 13:17:51] "GET /login HTTP/1.1" 200 -
+2024-09-27 08:17:51.17
+04aee3f3
+User
+2024-09-27 13:17:51,174 - werkzeug - INFO - 127.0.0.1 - - [27/Sep/2024 13:17:51] "GET /static/css/output.css HTTP/1.1" 304 -
+2024-09-27 08:17:57.64
+04aee3f3
+User
+2024-09-27 13:17:57,638 - main - ERROR - Exception on /login [POST]
+2024-09-27 08:17:57.64
+04aee3f3
+User
+Traceback (most recent call last):
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+2024-09-27 08:17:57.64
+04aee3f3
+User
+response = self.full_dispatch_request()
+2024-09-27 08:17:57.64
+04aee3f3
+User
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+2024-09-27 08:17:57.64
+04aee3f3
+User
+rv = self.handle_user_exception(e)
+2024-09-27 08:17:57.64
+04aee3f3
+User
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+2024-09-27 08:17:57.64
+04aee3f3
+User
+rv = self.dispatch_request()
+2024-09-27 08:17:57.64
+04aee3f3
+User
+^^^^^^^^^^^^^^^^^^^^^^^
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+2024-09-27 08:17:57.64
+04aee3f3
+User
+return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args) # type: ignore[no-any-return]
+2024-09-27 08:17:57.64
+04aee3f3
+User
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/main.py", line 41, in login
+2024-09-27 08:17:57.64
+04aee3f3
+User
+if check_password_hash(LOGIN_PASSWORD, password):
+2024-09-27 08:17:57.64
+04aee3f3
+User
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/.pythonlibs/lib/python3.11/site-packages/werkzeug/security.py", line 128, in check_password_hash
+2024-09-27 08:17:57.64
+04aee3f3
+User
+return hmac.compare_digest(_hash_internal(method, salt, password)[0], hashval)
+2024-09-27 08:17:57.64
+04aee3f3
+User
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-09-27 08:17:57.64
+04aee3f3
+User
+File "/home/runner/04dd5652-9924-4554-b10f-32ba7428b67b/.pythonlibs/lib/python3.11/site-packages/werkzeug/security.py", line 70, in _hash_internal
+2024-09-27 08:17:57.64
+04aee3f3
+User
+raise ValueError(f"Invalid hash method '{method}'.")
+2024-09-27 08:17:57.64
+04aee3f3
+User
+ValueError: Invalid hash method 'thb123'.
+2024-09-27 08:17:57.64
+04aee3f3
+User
+2024-09-27 13:17:57,648 - werkzeug - INFO - 127.0.0.1 - - [27/Sep/2024 13:17:57] "POST /login HTTP/1.1" 500
