@@ -939,7 +939,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 200px;
   height: auto;
 }
 
@@ -991,6 +991,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 10px solid #333;
 }
 
 .phone-screen {
