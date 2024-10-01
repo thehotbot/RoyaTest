@@ -29,7 +29,7 @@ agentRequireRestartOnSave = false
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python main.py"
-waitForPort = 3001
+waitForPort = 5000
 
 [[workflows.workflow]]
 name = "Build Tailwind CSS"
