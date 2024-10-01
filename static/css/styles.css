@@ -235,6 +235,25 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem;
 }
 
+#status-container {
+    font-family: 'Courier New', Consolas, monospace;
+    background-color: #1E1E1E;
+    color: #00FF00;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 300px;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    #status-container {
+        margin-top: 0;
+        height: 700px;
+        max-height: none;
+    }
+}
+
 @media (max-width: 640px) {
     .smartphone-frame {
         max-width: 100%;
