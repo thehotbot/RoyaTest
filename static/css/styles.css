@@ -8,11 +8,35 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
 }
 
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    max-width: 260px;
+    height: auto;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.logout-btn {
+    color: #FD4C00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .smartphone-frame {
     position: relative;
     width: 100%;
-    max-width: 360px;
-    height: 640px;
+    max-width: 400px;
+    height: 700px;
     margin: auto;
     border: 16px #374151 solid;
     border-top-width: 60px;
