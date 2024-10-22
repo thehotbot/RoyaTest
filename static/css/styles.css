@@ -8,35 +8,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.logo {
-    max-width: 260px;
-    height: auto;
-}
-
-.button-container {
-    display: flex;
-    gap: 1rem;
-}
-
-.logout-btn {
-    color: #FD4C00;
-    text-decoration: none;
-    font-weight: bold;
-}
-
 .smartphone-frame {
     position: relative;
     width: 100%;
-    max-width: 400px;
-    height: 700px;
+    max-width: 360px;
+    height: 640px;
     margin: auto;
     border: 16px #374151 solid;
     border-top-width: 60px;
@@ -233,25 +209,6 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
     margin-top: 1rem;
     padding: 1rem;
-}
-
-#status-container {
-    font-family: 'Courier New', Consolas, monospace;
-    background-color: #1E1E1E;
-    color: #00FF00;
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-y: auto;
-    max-height: 300px;
-    margin-top: 1rem;
-}
-
-@media (min-width: 768px) {
-    #status-container {
-        margin-top: 0;
-        height: 700px;
-        max-height: none;
-    }
 }
 
 @media (max-width: 640px) {

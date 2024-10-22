@@ -146,26 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', `${role}-message`);
         
-        // Check for status messages wrapped in double square brackets
-        const statusRegex = /\[\[(.*?)\]\]/g;
-        const statusMessages = content.match(statusRegex);
-        
-        if (statusMessages) {
-            // Remove status messages from the main content
-            content = content.replace(statusRegex, '');
-            
-            // Display status messages in the status-container
-            const statusContainer = document.getElementById('status-container');
-            statusMessages.forEach(status => {
-                const statusElement = document.createElement('div');
-                statusElement.textContent = status.slice(2, -2); // Remove [[ and ]]
-                statusContainer.appendChild(statusElement);
-            });
-            
-            // Auto-scroll status container
-            statusContainer.scrollTop = statusContainer.scrollHeight;
-        }
-        
         if (role === 'assistant') {
             const formattedContent = content.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
             messageElement.innerHTML = formattedContent;
