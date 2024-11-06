@@ -165,5 +165,5 @@ def send_message():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 3001))
+    port = int(os.environ.get('PORT', 3002))  # Changed default port to 3002
     app.run(host='0.0.0.0', port=port, debug=False)
