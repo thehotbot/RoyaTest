@@ -10,6 +10,8 @@ python = "^3.11"
 flask = "^3.0.3"
 openai = "^1.46.0"
 flask-session = "^0.8.0"
+python-dotenv = "^1.0.1"
+werkzeug = "^3.0.4"
 
 
 [build-system]
