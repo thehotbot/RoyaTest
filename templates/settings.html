@@ -20,6 +20,20 @@
             {% endwith %}
 
             <form action="{{ url_for('settings') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
+                <!-- API Settings Section -->
+                <section class="space-y-4">
+                    <h2 class="text-xl font-bold text-[#141E33] pb-2 border-b border-gray-200">API Settings</h2>
+                    <div>
+                        <label for="openai_api_key" class="block text-sm font-medium text-gray-700">OpenAI API Key</label>
+                        <div class="mt-1">
+                            <input type="password" id="openai_api_key" name="openai_api_key" 
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
+                                placeholder="Enter your OpenAI API key">
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">Your API key will be securely stored in the session</p>
+                    </div>
+                </section>
+
                 <!-- App Appearance Section -->
                 <section class="space-y-4">
                     <h2 class="text-xl font-bold text-[#141E33] pb-2 border-b border-gray-200">App Appearance</h2>

@@ -14,8 +14,6 @@ Session(app)
 
 logging.basicConfig(level=logging.INFO)
 
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
-
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # 5MB max file size
@@ -30,6 +28,10 @@ except Exception as e:
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def get_openai_client():
+    api_key = session.get('openai_api_key') or os.environ.get('OPENAI_API_KEY')
+    return OpenAI(api_key=api_key)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -68,6 +70,20 @@ def settings():
     
     if request.method == 'POST':
         settings_updated = False
+
+        # Update OpenAI API Key
+        openai_api_key = request.form.get('openai_api_key')
+        if openai_api_key:
+            try:
+                # Test the API key by making a simple API call
+                test_client = OpenAI(api_key=openai_api_key)
+                test_client.models.list()  # Simple API call to verify the key
+                session['openai_api_key'] = openai_api_key
+                settings_updated = True
+                flash('OpenAI API key updated successfully!', 'success')
+            except Exception as e:
+                flash('Invalid OpenAI API key. Please check and try again.', 'error')
+                return redirect(url_for('settings'))
 
         # Update Colors
         bg_color = request.form.get('bg_color')
@@ -123,6 +139,7 @@ def settings():
 def get_assistants_route():
     if not session.get('authenticated'):
         return jsonify({"error": "Not authenticated"}), 401
+    client = get_openai_client()
     assistants = get_assistants(client)
     return jsonify(assistants)
 
@@ -130,6 +147,7 @@ def get_assistants_route():
 def create_thread_route():
     if not session.get('authenticated'):
         return jsonify({"error": "Not authenticated"}), 401
+    client = get_openai_client()
     thread = create_thread(client)
     return jsonify({"thread_id": thread.id})
 
@@ -146,6 +164,7 @@ def send_message():
         if not thread_id or not message or not assistant_id:
             return jsonify({"error": "Missing required parameters"}), 400
 
+        client = get_openai_client()
         add_message_to_thread(client, thread_id, message)
         run = run_assistant(client, thread_id, assistant_id)
         messages = get_messages(client, thread_id)
