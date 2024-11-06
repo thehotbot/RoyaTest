@@ -93,21 +93,25 @@
         // Add client-side file validation
         document.getElementById('logo').addEventListener('change', function(e) {
             const file = e.target.files[0];
+            
+            // Only validate if a file is actually selected
+            if (!file) {
+                return; // Skip validation if no file is selected
+            }
+
             const maxSize = 5 * 1024 * 1024; // 5MB
             const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'];
             
-            if (file) {
-                if (!allowedTypes.includes(file.type)) {
-                    alert('Invalid file type. Please upload a PNG, JPG, JPEG, or GIF file.');
-                    e.target.value = '';
-                    return;
-                }
-                
-                if (file.size > maxSize) {
-                    alert('File size too large. Maximum size is 5MB.');
-                    e.target.value = '';
-                    return;
-                }
+            if (!allowedTypes.includes(file.type)) {
+                alert('Invalid file type. Please upload a PNG, JPG, JPEG, or GIF file.');
+                e.target.value = ''; // Clear the file input
+                return;
+            }
+            
+            if (file.size > maxSize) {
+                alert('File size too large. Maximum size is 5MB.');
+                e.target.value = ''; // Clear the file input
+                return;
             }
         });
     </script>

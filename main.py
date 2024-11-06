@@ -71,16 +71,20 @@ def settings():
         return redirect(url_for('login'))
     
     if request.method == 'POST':
+        settings_updated = False
+        
         # Update OpenAI API Key
         new_api_key = request.form.get('api_key')
         if new_api_key:
             os.environ['OPENAI_API_KEY'] = new_api_key
             client.api_key = new_api_key
+            settings_updated = True
 
         # Update App Title
         new_title = request.form.get('app_title')
         if new_title:
             session['app_title'] = new_title
+            settings_updated = True
 
         # Update Colors
         bg_color = request.form.get('bg_color')
@@ -89,19 +93,29 @@ def settings():
         
         if bg_color:
             session['bg_color'] = bg_color
+            settings_updated = True
         if headline_color:
             session['headline_color'] = headline_color
+            settings_updated = True
         if accent_color:
             session['accent_color'] = accent_color
+            settings_updated = True
 
         # Handle Logo Upload
         if 'logo' in request.files:
             file = request.files['logo']
-            if file and file.filename and allowed_file(file.filename):
+            # Only validate if a file is actually uploaded (has content)
+            if file and file.filename:
+                # Validate file type
+                if not allowed_file(file.filename):
+                    flash('Invalid file type. Please upload a valid image file (PNG, JPG, JPEG, or GIF).', 'error')
+                    return redirect(url_for('settings'))
+                
                 try:
                     # Check file size
                     file_content = file.read()
                     file.seek(0)  # Reset file pointer after reading
+                    
                     if len(file_content) > MAX_CONTENT_LENGTH:
                         flash('File size too large. Maximum size is 5MB.', 'error')
                         return redirect(url_for('settings'))
@@ -110,13 +124,16 @@ def settings():
                     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                     file.save(file_path)
                     session['logo_path'] = f'uploads/{filename}'
-                    flash('Settings updated successfully!', 'success')
+                    settings_updated = True
                 except Exception as e:
                     logging.error(f"File upload error: {e}")
                     flash('Failed to upload logo. Please try again.', 'error')
-            else:
-                flash('Invalid file type. Please upload a valid image file (PNG, JPG, JPEG, or GIF).', 'error')
+                    return redirect(url_for('settings'))
 
+        # Show success message only if any setting was updated
+        if settings_updated:
+            flash('Settings updated successfully!', 'success')
+        
         return redirect(url_for('settings'))
 
     return render_template('settings.html', 
@@ -165,5 +182,5 @@ def send_message():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 3002))  # Changed default port to 3002
+    port = int(os.environ.get('PORT', 5000))  # Use port 5000 as default
     app.run(host='0.0.0.0', port=port, debug=False)
