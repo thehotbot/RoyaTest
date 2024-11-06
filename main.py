@@ -133,7 +133,8 @@ def settings():
 
     return render_template('settings.html',
                          bg_color=session.get('bg_color', '#141E33'),
-                         accent_color=session.get('accent_color', '#FD4C00'))
+                         accent_color=session.get('accent_color', '#FD4C00'),
+                         openai_api_key=session.get('openai_api_key', ''))
 
 @app.route('/get_assistants')
 def get_assistants_route():
