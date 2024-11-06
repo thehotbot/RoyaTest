@@ -211,6 +211,48 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem;
 }
 
+/* Settings page specific styles */
+.settings-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h2 {
+    color: #141E33;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.color-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.color-input-group input[type="color"] {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.color-input-group input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #141E33;
+}
+
 @media (max-width: 640px) {
     .smartphone-frame {
         max-width: 100%;
@@ -262,5 +304,19 @@ h1, h2, h3, h4, h5, h6 {
 
     #calculateBtn {
         font-size: 0.9rem;
+    }
+
+    .settings-section {
+        padding: 1rem;
+    }
+
+    .color-input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .color-input-group input[type="color"] {
+        width: 100%;
+        height: 2rem;
     }
 }
