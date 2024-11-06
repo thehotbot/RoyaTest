@@ -58,7 +58,6 @@ def index():
     if not session.get('authenticated'):
         return redirect(url_for('login'))
     return render_template('index.html', 
-                         title='The Hot Bot Demo',
                          bg_color=session.get('bg_color', '#141E33'),
                          accent_color=session.get('accent_color', '#FD4C00'))
 
@@ -69,13 +68,6 @@ def settings():
     
     if request.method == 'POST':
         settings_updated = False
-        
-        # Update OpenAI API Key
-        new_api_key = request.form.get('api_key')
-        if new_api_key:
-            os.environ['OPENAI_API_KEY'] = new_api_key
-            client.api_key = new_api_key
-            settings_updated = True
 
         # Update Colors
         bg_color = request.form.get('bg_color')
