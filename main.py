@@ -38,6 +38,13 @@ def login():
         stored_password = os.environ.get('LOGIN_PASSWORD')
         if password == stored_password:
             session['authenticated'] = True
+            # Set default colors if not already set
+            if 'bg_color' not in session:
+                session['bg_color'] = '#141E33'
+            if 'headline_color' not in session:
+                session['headline_color'] = '#FCBA04'
+            if 'accent_color' not in session:
+                session['accent_color'] = '#FD4C00'
             return redirect(url_for('index'))
         else:
             return render_template('login.html', error='Invalid password')
@@ -52,7 +59,11 @@ def logout():
 def index():
     if not session.get('authenticated'):
         return redirect(url_for('login'))
-    return render_template('index.html', title=session.get('app_title', 'The Hot Bot Demo'))
+    return render_template('index.html', 
+                         title=session.get('app_title', 'The Hot Bot Demo'),
+                         bg_color=session.get('bg_color', '#141E33'),
+                         headline_color=session.get('headline_color', '#FCBA04'),
+                         accent_color=session.get('accent_color', '#FD4C00'))
 
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
@@ -71,6 +82,18 @@ def settings():
         if new_title:
             session['app_title'] = new_title
 
+        # Update Colors
+        bg_color = request.form.get('bg_color')
+        headline_color = request.form.get('headline_color')
+        accent_color = request.form.get('accent_color')
+        
+        if bg_color:
+            session['bg_color'] = bg_color
+        if headline_color:
+            session['headline_color'] = headline_color
+        if accent_color:
+            session['accent_color'] = accent_color
+
         # Handle Logo Upload
         if 'logo' in request.files:
             file = request.files['logo']
@@ -87,7 +110,7 @@ def settings():
                     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                     file.save(file_path)
                     session['logo_path'] = f'uploads/{filename}'
-                    flash('Logo uploaded successfully!', 'success')
+                    flash('Settings updated successfully!', 'success')
                 except Exception as e:
                     logging.error(f"File upload error: {e}")
                     flash('Failed to upload logo. Please try again.', 'error')
@@ -96,7 +119,11 @@ def settings():
 
         return redirect(url_for('settings'))
 
-    return render_template('settings.html', title=session.get('app_title', 'The Hot Bot Demo'))
+    return render_template('settings.html', 
+                         title=session.get('app_title', 'The Hot Bot Demo'),
+                         bg_color=session.get('bg_color', '#141E33'),
+                         headline_color=session.get('headline_color', '#FCBA04'),
+                         accent_color=session.get('accent_color', '#FD4C00'))
 
 @app.route('/get_assistants')
 def get_assistants_route():
@@ -138,5 +165,5 @@ def send_message():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 3001))  # Updated default port to 3001
+    port = int(os.environ.get('PORT', 3001))
     app.run(host='0.0.0.0', port=port, debug=False)
