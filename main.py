@@ -41,8 +41,6 @@ def login():
             # Set default colors if not already set
             if 'bg_color' not in session:
                 session['bg_color'] = '#141E33'
-            if 'headline_color' not in session:
-                session['headline_color'] = '#FCBA04'
             if 'accent_color' not in session:
                 session['accent_color'] = '#FD4C00'
             return redirect(url_for('index'))
@@ -60,9 +58,8 @@ def index():
     if not session.get('authenticated'):
         return redirect(url_for('login'))
     return render_template('index.html', 
-                         title=session.get('app_title', 'The Hot Bot Demo'),
+                         title='The Hot Bot Demo',
                          bg_color=session.get('bg_color', '#141E33'),
-                         headline_color=session.get('headline_color', '#FCBA04'),
                          accent_color=session.get('accent_color', '#FD4C00'))
 
 @app.route('/settings', methods=['GET', 'POST'])
@@ -80,22 +77,12 @@ def settings():
             client.api_key = new_api_key
             settings_updated = True
 
-        # Update App Title
-        new_title = request.form.get('app_title')
-        if new_title:
-            session['app_title'] = new_title
-            settings_updated = True
-
         # Update Colors
         bg_color = request.form.get('bg_color')
-        headline_color = request.form.get('headline_color')
         accent_color = request.form.get('accent_color')
         
         if bg_color:
             session['bg_color'] = bg_color
-            settings_updated = True
-        if headline_color:
-            session['headline_color'] = headline_color
             settings_updated = True
         if accent_color:
             session['accent_color'] = accent_color
@@ -136,10 +123,8 @@ def settings():
         
         return redirect(url_for('settings'))
 
-    return render_template('settings.html', 
-                         title=session.get('app_title', 'The Hot Bot Demo'),
+    return render_template('settings.html',
                          bg_color=session.get('bg_color', '#141E33'),
-                         headline_color=session.get('headline_color', '#FCBA04'),
                          accent_color=session.get('accent_color', '#FD4C00'))
 
 @app.route('/get_assistants')

@@ -9,14 +9,13 @@
     <style>
         :root {
             --bg-color: {{ bg_color }};
-            --headline-color: {{ headline_color }};
             --accent-color: {{ accent_color }};
         }
         body {
             background-color: var(--bg-color);
         }
         h1.text-yellow-400 {
-            color: var(--headline-color);
+            color: #FCBA04;
         }
         .bg-orange-500, .hover\:bg-orange-600:hover {
             background-color: var(--accent-color);
@@ -38,7 +37,7 @@
 </head>
 <body class="min-h-screen flex flex-col items-center justify-start py-8">
     <div class="container mx-auto px-4 flex flex-col items-center">
-        <h1 class="text-5xl font-bold mb-12 text-center text-yellow-400 font-orbitron">{{ title }}</h1>
+        <h1 class="text-5xl font-bold mb-12 text-center text-yellow-400 font-orbitron">The Hot Bot Demo</h1>
         
         {% if session.get('logo_path') %}
             <img src="{{ url_for('static', filename=session.get('logo_path')) }}" alt="App Logo" class="mb-8 max-w-xs">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings - {{ title }}</title>
+    <title>Settings - The Hot Bot Demo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
@@ -48,44 +48,24 @@
                 <!-- App Appearance Section -->
                 <section class="space-y-4">
                     <h2 class="text-xl font-bold text-[#141E33] pb-2 border-b border-gray-200">App Appearance</h2>
-                    <div>
-                        <label for="app_title" class="block text-sm font-medium text-gray-700">App Title</label>
-                        <input type="text" id="app_title" name="app_title" value="{{ title }}" 
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
-                            title="The title displayed at the top of your application">
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="bg_color" class="block text-sm font-medium text-gray-700">Background Color</label>
-                            <div class="mt-1 flex">
+                            <label for="bg_color" class="block text-sm font-medium text-gray-700 mb-2">Background Color</label>
+                            <div class="color-input-group">
                                 <input type="color" id="bg_color" name="bg_color" value="{{ session.get('bg_color', '#141E33') }}" 
-                                    class="h-8 w-8 rounded-md border border-gray-300 cursor-pointer"
                                     title="Main background color of the application">
                                 <input type="text" value="{{ session.get('bg_color', '#141E33') }}" 
-                                    class="ml-2 flex-1 border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm" readonly>
+                                    class="flex-1" readonly>
                             </div>
                         </div>
 
                         <div>
-                            <label for="headline_color" class="block text-sm font-medium text-gray-700">Headline Color</label>
-                            <div class="mt-1 flex">
-                                <input type="color" id="headline_color" name="headline_color" value="{{ session.get('headline_color', '#FCBA04') }}" 
-                                    class="h-8 w-8 rounded-md border border-gray-300 cursor-pointer"
-                                    title="Color of main headings">
-                                <input type="text" value="{{ session.get('headline_color', '#FCBA04') }}" 
-                                    class="ml-2 flex-1 border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm" readonly>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="accent_color" class="block text-sm font-medium text-gray-700">Accent Color</label>
-                            <div class="mt-1 flex">
+                            <label for="accent_color" class="block text-sm font-medium text-gray-700 mb-2">Accent Color</label>
+                            <div class="color-input-group">
                                 <input type="color" id="accent_color" name="accent_color" value="{{ session.get('accent_color', '#FD4C00') }}" 
-                                    class="h-8 w-8 rounded-md border border-gray-300 cursor-pointer"
                                     title="Color for buttons and interactive elements">
                                 <input type="text" value="{{ session.get('accent_color', '#FD4C00') }}" 
-                                    class="ml-2 flex-1 border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm" readonly>
+                                    class="flex-1" readonly>
                             </div>
                         </div>
                     </div>
