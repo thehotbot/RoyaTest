@@ -1051,6 +1051,26 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', sans-serif;
 }
 
+input[type="password"] {
+  color: #374151 !important;
+}
+
+.settings-section input[type="password"] {
+  color: #374151 !important;
+}
+
+.settings-section input {
+  color: #374151 !important;
+}
+
+input[type="text"], input[type="password"] {
+  color: #374151 !important;
+}
+
+.color-input-group {
+  color: #374151 !important;
+}
+
 .smartphone-frame {
   position: relative;
   width: 100%;
