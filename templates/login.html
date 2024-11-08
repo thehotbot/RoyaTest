@@ -6,10 +6,16 @@
     <title>Login - The Hot Bot Demo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <style>
+        :root {
+            --bg-color: {{ bg_color }};
+            --accent-color: {{ accent_color }};
+        }
+    </style>
 </head>
-<body class="bg-gray-900 h-screen flex items-center justify-center font-inter">
+<body class="h-screen flex items-center justify-center font-inter" style="background-color: var(--bg-color);">
     <div class="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 class="text-2xl font-bold mb-6 text-center text-yellow-400 font-orbitron">Login</h1>
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-900 font-orbitron">Login</h1>
         {% if error %}
         <p class="text-red-500 mb-4">{{ error }}</p>
         {% endif %}
@@ -19,7 +25,7 @@
                 <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-500" required>
             </div>
             <div class="flex items-center justify-between">
-                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">
+                <button type="submit" class="w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300" style="background-color: var(--accent-color);">
                     Sign In
                 </button>
             </div>

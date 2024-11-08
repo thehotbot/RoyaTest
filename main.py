@@ -47,8 +47,13 @@ def login():
                 session['accent_color'] = '#FD4C00'
             return redirect(url_for('index'))
         else:
-            return render_template('login.html', error='Invalid password')
-    return render_template('login.html')
+            return render_template('login.html', 
+                                error='Invalid password',
+                                bg_color=session.get('bg_color', '#141E33'),
+                                accent_color=session.get('accent_color', '#FD4C00'))
+    return render_template('login.html',
+                         bg_color=session.get('bg_color', '#141E33'),
+                         accent_color=session.get('accent_color', '#FD4C00'))
 
 @app.route('/logout')
 def logout():
