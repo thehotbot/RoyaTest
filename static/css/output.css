@@ -770,12 +770,6 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1207,7 +1201,7 @@ input[type="text"], input[type="password"] {
 
 .user-message {
   align-self: flex-end;
-  background-color: #FD4C00;
+  background-color: var(--accent-color);
   color: white;
   margin-left: auto;
 }
@@ -1244,7 +1238,7 @@ input[type="text"], input[type="password"] {
 }
 
 .toggle-btn.active {
-  background-color: #FD4C00;
+  background-color: var(--accent-color);
   transform: scale(1.05);
 }
 
@@ -1301,13 +1295,14 @@ input[type="text"], input[type="password"] {
 }
 
 #calculateBtn {
-  background-color: #FD4C00;
+  background-color: var(--accent-color);
   transition: all 0.3s ease;
   margin-top: 1rem;
 }
 
 #calculateBtn:hover {
-  background-color: #ff6b2b;
+  background-color: var(--accent-color);
+  opacity: 0.9;
   transform: translateY(-2px);
 }
 

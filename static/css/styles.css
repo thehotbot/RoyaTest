@@ -123,7 +123,7 @@ input[type="text"], input[type="password"] {
 
 .user-message {
     align-self: flex-end;
-    background-color: #FD4C00;
+    background-color: var(--accent-color);
     color: white;
     margin-left: auto;
 }
@@ -160,7 +160,7 @@ input[type="text"], input[type="password"] {
 }
 
 .toggle-btn.active {
-    background-color: #FD4C00;
+    background-color: var(--accent-color);
     transform: scale(1.05);
 }
 
@@ -212,13 +212,14 @@ input[type="text"], input[type="password"] {
 }
 
 #calculateBtn {
-    background-color: #FD4C00;
+    background-color: var(--accent-color);
     transition: all 0.3s ease;
     margin-top: 1rem;
 }
 
 #calculateBtn:hover {
-    background-color: #ff6b2b;
+    background-color: var(--accent-color);
+    opacity: 0.9;
     transform: translateY(-2px);
 }
 
