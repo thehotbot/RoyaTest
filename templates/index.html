@@ -38,17 +38,17 @@
 <body class="min-h-screen flex flex-col items-center justify-start py-8">
     <div class="container mx-auto px-4">
         <!-- Header section with logo and navigation -->
-        <div class="w-full flex flex-wrap items-center justify-between mb-8">
-            <div class="flex items-center">
+        <header class="w-full flex items-center justify-between mb-8 gap-4">
+            <div class="flex-shrink-0">
                 {% if session.get('logo_path') %}
-                    <img src="{{ url_for('static', filename=session.get('logo_path')) }}" alt="App Logo" class="h-12 md:h-16 w-auto">
+                    <img src="{{ url_for('static', filename=session.get('logo_path')) }}" alt="App Logo" class="h-12 max-w-[200px] w-auto object-contain">
                 {% endif %}
             </div>
-            <div class="flex items-center space-x-4">
-                <a href="{{ url_for('settings') }}" class="text-orange-500 hover:text-orange-700 font-semibold">Settings</a>
-                <a href="{{ url_for('logout') }}" class="text-orange-500 hover:text-orange-700 font-semibold">Logout</a>
-            </div>
-        </div>
+            <nav class="flex items-center gap-6">
+                <a href="{{ url_for('settings') }}" class="text-orange-500 hover:text-orange-700 font-semibold whitespace-nowrap">Settings</a>
+                <a href="{{ url_for('logout') }}" class="text-orange-500 hover:text-orange-700 font-semibold whitespace-nowrap">Logout</a>
+            </nav>
+        </header>
         
         <!-- Toggle buttons section -->
         <div class="flex justify-center space-x-4 mb-8">
