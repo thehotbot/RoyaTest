@@ -17,7 +17,7 @@ args = "Build Tailwind CSS"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Start Flask Server"
+args = "Flask Server"
 
 [[workflows.workflow]]
 name = "Build Tailwind CSS"
@@ -27,11 +27,14 @@ author = "agent"
 agentRequireRestartOnSave = false
 
 [[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npx tailwindcss build static/css/tailwind.css -o static/css/output.css"
 
 [[workflows.workflow]]
-name = "Start Flask Server"
+name = "Flask Server"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -46,7 +49,7 @@ args = "python main.py"
 waitForPort = 5000
 
 [deployment]
-run = ["sh", "-c", "python main.py"]
+run = ["sh", "-c", "npx tailwindcss build static/css/tailwind.css -o static/css/output.css"]
 deploymentTarget = "cloudrun"
 
 [[ports]]

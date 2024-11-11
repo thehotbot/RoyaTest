@@ -860,11 +860,6 @@ video {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
@@ -987,6 +982,11 @@ video {
 .text-\[\#141E33\] {
   --tw-text-opacity: 1;
   color: rgb(20 30 51 / var(--tw-text-opacity));
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-gray-500 {
@@ -1239,11 +1239,13 @@ input[type="text"], input[type="password"] {
 
 .toggle-btn.active {
   background-color: var(--accent-color);
+  color: white;
   transform: scale(1.05);
 }
 
 .toggle-btn:not(.active) {
   background-color: #4B5563;
+  color: white;
 }
 
 .input-group {
