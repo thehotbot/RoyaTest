@@ -6,6 +6,7 @@ import logging
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from openai_helpers import get_assistants, create_thread, add_message_to_thread, run_assistant, get_messages
+import dotenv
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -32,6 +33,35 @@ def allowed_file(filename):
 def get_openai_client():
     api_key = session.get('openai_api_key') or os.environ.get('OPENAI_API_KEY')
     return OpenAI(api_key=api_key)
+
+def update_env_var(key, value):
+    """Update environment variable in .env file and current session"""
+    env_path = '.env'
+    try:
+        # Read existing .env file
+        env_vars = {}
+        if os.path.exists(env_path):
+            with open(env_path, 'r') as f:
+                for line in f:
+                    if '=' in line:
+                        k, v = line.strip().split('=', 1)
+                        env_vars[k] = v
+
+        # Update the variable
+        env_vars[key] = value
+
+        # Write back to .env file
+        with open(env_path, 'w') as f:
+            for k, v in env_vars.items():
+                f.write(f'{k}={v}\n')
+
+        # Update runtime environment
+        os.environ[key] = value
+        
+        return True
+    except Exception as e:
+        logging.error(f"Failed to update environment variable: {e}")
+        return False
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -78,6 +108,32 @@ def settings():
     
     if request.method == 'POST':
         settings_updated = False
+
+        # Handle Password Change
+        current_password = request.form.get('current_password')
+        new_password = request.form.get('new_password')
+        confirm_password = request.form.get('confirm_password')
+
+        if current_password and new_password and confirm_password:
+            stored_password = os.environ.get('LOGIN_PASSWORD')
+            
+            # Verify current password
+            if current_password != stored_password:
+                flash('Current password is incorrect.', 'error')
+                return redirect(url_for('settings'))
+
+            # Verify new password confirmation
+            if new_password != confirm_password:
+                flash('New passwords do not match.', 'error')
+                return redirect(url_for('settings'))
+
+            # Update password in environment and .env file
+            if update_env_var('LOGIN_PASSWORD', new_password):
+                flash('Password updated successfully!', 'success')
+                settings_updated = True
+            else:
+                flash('Failed to update password. Please try again.', 'error')
+                return redirect(url_for('settings'))
 
         # Update OpenAI API Key
         openai_api_key = request.form.get('openai_api_key')
