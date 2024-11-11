@@ -11,11 +11,19 @@
             --bg-color: {{ bg_color }};
             --accent-color: {{ accent_color }};
         }
+        body {
+            background-color: var(--bg-color);
+        }
+        /* Ensure heading text color is black */
+        .login-heading {
+            color: #1f2937 !important;
+            font-family: 'Orbitron', sans-serif;
+        }
     </style>
 </head>
-<body class="h-screen flex items-center justify-center font-inter" style="background-color: var(--bg-color);">
+<body class="h-screen flex items-center justify-center font-inter">
     <div class="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 class="text-2xl font-bold mb-6 text-center text-black !important font-orbitron" style="color: black !important;">Login</h1>
+        <h1 class="login-heading text-2xl font-bold mb-6 text-center">Login</h1>
         {% if error %}
         <p class="text-red-500 mb-4">{{ error }}</p>
         {% endif %}
