@@ -40,12 +40,23 @@ def is_port_in_use(port):
         except socket.error:
             return True
 
-def find_available_port(start_port):
+def find_available_port(start_port, max_attempts=10):
+    """Find an available port with retry mechanism and better logging"""
     port = start_port
-    while is_port_in_use(port):
-        app.logger.warning(f"Port {port} is in use, trying next port")
+    attempt = 0
+    
+    while attempt < max_attempts:
+        if not is_port_in_use(port):
+            app.logger.info(f"Found available port: {port}")
+            return port
+        
+        attempt += 1
         port += 1
-    return port
+        app.logger.warning(f"Port {port-1} is in use, trying port {port} (attempt {attempt}/{max_attempts})")
+    
+    app.logger.error(f"Failed to find available port after {max_attempts} attempts")
+    # Return the initial port and let the server handle the error
+    return start_port
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

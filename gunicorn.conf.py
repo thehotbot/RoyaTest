@@ -17,12 +17,14 @@ graceful_timeout = 120
 keepalive = 5
 
 # Worker settings
-max_requests = 1000
-max_requests_jitter = 50
-# Removed worker_tmp_dir as it's not needed in Replit environment
+max_requests = 2000  # Increased to reduce worker recycling
+max_requests_jitter = 100  # Increased to prevent thundering herd
 preload_app = True
 worker_class = 'sync'  # Using sync worker for better compatibility
 workers = 2  # Limiting workers for Replit environment
+timeout = 300  # Increased timeout for better persistence
+keepalive = 15  # Increased keepalive for better connection handling
+graceful_timeout = 60  # More time for graceful worker shutdown
 
 # Logging
 accesslog = 'logs/gunicorn_access.log'
