@@ -13,25 +13,11 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Build Tailwind CSS"
+args = "Flask Server"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Flask Server"
-
-[[workflows.workflow]]
-name = "Build Tailwind CSS"
-author = "agent"
-
-[workflows.workflow.metadata]
-agentRequireRestartOnSave = false
-
-[[workflows.workflow.tasks]]
-task = "packager.installForAll"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npx tailwindcss build static/css/tailwind.css -o static/css/output.css"
+args = "Build Tailwind CSS"
 
 [[workflows.workflow]]
 name = "Flask Server"
@@ -47,6 +33,20 @@ task = "packager.installForAll"
 task = "shell.exec"
 args = "python main.py"
 waitForPort = 5000
+
+[[workflows.workflow]]
+name = "Build Tailwind CSS"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx tailwindcss -i static/css/tailwind.css -o static/css/output.css --watch"
 
 [deployment]
 run = ["sh", "-c", "npx tailwindcss build static/css/tailwind.css -o static/css/output.css"]
