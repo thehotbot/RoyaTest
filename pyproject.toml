@@ -12,6 +12,7 @@ openai = "^1.46.0"
 flask-session = "^0.8.0"
 python-dotenv = "^1.0.1"
 werkzeug = "^3.0.4"
+gunicorn = "^23.0.0"
 
 
 [build-system]
