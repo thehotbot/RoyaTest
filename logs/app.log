@@ -98,3 +98,55 @@ Function: _send_single_request
 Path: /home/runner/OnRiseAI/utils/logging_config.py:85
 Function: __call__
 
+2024-11-21 23:04:50,998 - INFO - [None] None None - Request: GET /static/js/app.js - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:04:51,001 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:04:52,182 - INFO - [None] None None - Request: GET /get_assistants - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:04:52,450 - INFO - [172.31.196.103] GET https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/get_assistants - HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:00,277 - INFO - [None] None None - Request: POST /create_thread - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:05:00,459 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/create_thread - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:00,754 - INFO - [None] None None - Request: POST /send_message - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:05:00,960 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/send_message - HTTP Request: POST https://api.openai.com/v1/threads/thread_mjQ8WxxLLGurFnT8nsD4WP6A/messages "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:01,816 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/send_message - HTTP Request: POST https://api.openai.com/v1/threads/thread_mjQ8WxxLLGurFnT8nsD4WP6A/runs "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:03,021 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/send_message - HTTP Request: GET https://api.openai.com/v1/threads/thread_mjQ8WxxLLGurFnT8nsD4WP6A/runs/run_RYwDomvDAlIPW9ILW34hdADK "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:04,148 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/send_message - HTTP Request: GET https://api.openai.com/v1/threads/thread_mjQ8WxxLLGurFnT8nsD4WP6A/runs/run_RYwDomvDAlIPW9ILW34hdADK "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:04,300 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/send_message - HTTP Request: GET https://api.openai.com/v1/threads/thread_mjQ8WxxLLGurFnT8nsD4WP6A/messages?limit=1&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:05:04,420 - INFO - [172.31.196.103] POST https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/send_message - HTTP Request: GET https://api.openai.com/v1/threads/thread_mjQ8WxxLLGurFnT8nsD4WP6A/messages?limit=10&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
