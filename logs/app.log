@@ -258,3 +258,79 @@ Function: __call__
 Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
 Function: _send_single_request
 
+2024-11-21 23:52:25,718 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:52:25,798 - INFO - [None] None None - Request: GET /static/js/app.js - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:52:25,800 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:52:27,017 - INFO - [None] None None - Request: GET /get_assistants - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:52:27,458 - INFO - [172.31.196.103] GET https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/get_assistants - HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-21 23:53:24,793 - INFO - [None] None None - Application started at 2024-11-21T23:53:24.793875
+Path: /home/runner/OnRiseAI/utils/logging_config.py:70
+Function: setup_logging
+
+2024-11-21 23:53:24,793 - INFO - [None] None None - Application started at 2024-11-21T23:53:24.793875
+Path: /home/runner/OnRiseAI/utils/logging_config.py:70
+Function: setup_logging
+
+2024-11-21 23:53:24,794 - INFO - [None] None None - Environment: production
+Path: /home/runner/OnRiseAI/utils/logging_config.py:71
+Function: setup_logging
+
+2024-11-21 23:53:24,794 - INFO - [None] None None - Environment: production
+Path: /home/runner/OnRiseAI/utils/logging_config.py:71
+Function: setup_logging
+
+2024-11-21 23:53:24,794 - INFO - [None] None None - Upload directory created/verified at static/uploads
+Path: /home/runner/OnRiseAI/main.py:30
+Function: <module>
+
+2024-11-21 23:53:24,794 - INFO - [None] None None - Upload directory created/verified at static/uploads
+Path: /home/runner/OnRiseAI/main.py:30
+Function: <module>
+
+2024-11-21 23:53:24,977 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:25,054 - INFO - [None] None None - Request: GET /static/js/app.js - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:25,127 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:25,300 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:25,305 - INFO - [None] None None - Request: GET /login - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:25,317 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:26,337 - INFO - [None] None None - Request: GET /get_assistants - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-21 23:53:26,828 - INFO - [172.31.196.103] GET https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/get_assistants - HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
