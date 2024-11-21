@@ -1,0 +1,28 @@
+2024-11-21 23:04:21 +0000 [3172] [ERROR] gunicorn.error: Error handling request /
+Traceback (most recent call last):
+  File "/home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/OnRiseAI/utils/logging_config.py", line 82, in __call__
+    self.app.logger.info(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'logger'
+2024-11-21 23:04:22 +0000 [3172] [ERROR] gunicorn.error: Error handling request /
+Traceback (most recent call last):
+  File "/home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/OnRiseAI/utils/logging_config.py", line 82, in __call__
+    self.app.logger.info(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'logger'

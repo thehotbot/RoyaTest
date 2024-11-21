@@ -9,17 +9,14 @@ from openai_helpers import get_assistants, create_thread, add_message_to_thread,
 import dotenv
 import socket
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+from utils.logging_config import setup_logging, RequestLoggingMiddleware
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
+setup_logging(app)
+app.wsgi_app = RequestLoggingMiddleware(app.wsgi_app)
 
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -30,9 +27,9 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
 # Create upload folder with error handling
 try:
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    logger.info(f"Upload directory created/verified at {app.config['UPLOAD_FOLDER']}")
+    app.logger.info(f"Upload directory created/verified at {app.config['UPLOAD_FOLDER']}")
 except Exception as e:
-    logger.error(f"Failed to create upload directory: {e}")
+    app.logger.error(f"Failed to create upload directory: {e}")
     raise
 
 def is_port_in_use(port):
@@ -46,7 +43,7 @@ def is_port_in_use(port):
 def find_available_port(start_port):
     port = start_port
     while is_port_in_use(port):
-        logger.warning(f"Port {port} is in use, trying next port")
+        app.logger.warning(f"Port {port} is in use, trying next port")
         port += 1
     return port
 
@@ -274,11 +271,11 @@ if __name__ == '__main__':
     port = find_available_port(default_port)
     
     if port != default_port:
-        logger.info(f"Default port {default_port} was in use, using port {port} instead")
+        app.logger.info(f"Default port {default_port} was in use, using port {port} instead")
     
     # Log startup information
-    logger.info(f"Starting Flask server on port {port}")
-    logger.info(f"Server will be accessible at http://0.0.0.0:{port}")
+    app.logger.info(f"Starting Flask server on port {port}")
+    app.logger.info(f"Server will be accessible at http://0.0.0.0:{port}")
     
     try:
         app.run(
@@ -288,5 +285,5 @@ if __name__ == '__main__':
             use_reloader=False  # Disable reloader to prevent double startup
         )
     except Exception as e:
-        logger.error(f"Failed to start server: {e}")
+        app.logger.error(f"Failed to start server: {e}")
         raise

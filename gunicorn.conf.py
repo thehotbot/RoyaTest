@@ -25,17 +25,27 @@ worker_class = 'sync'  # Using sync worker for better compatibility
 workers = 2  # Limiting workers for Replit environment
 
 # Logging
-accesslog = '-'
-errorlog = '-'
+accesslog = 'logs/gunicorn_access.log'
+errorlog = 'logs/gunicorn_error.log'
 loglevel = 'info'
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" %(L)s'
+
+# Create logs directory if it doesn't exist
+import os
+os.makedirs('logs', exist_ok=True)
+
 logconfig_dict = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'standard': {
-            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+            'format': '%(asctime)s [%(process)d] [%(levelname)s] %(name)s: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S %z'
         },
+        'access': {
+            'format': '%(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S %z'
+        }
     },
     'handlers': {
         'console': {
@@ -43,12 +53,37 @@ logconfig_dict = {
             'formatter': 'standard',
             'stream': 'ext://sys.stdout'
         },
+        'error_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'standard',
+            'filename': 'logs/gunicorn_error.log',
+            'maxBytes': 10485760,  # 10MB
+            'backupCount': 10,
+            'level': 'ERROR'
+        },
+        'access_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'access',
+            'filename': 'logs/gunicorn_access.log',
+            'maxBytes': 10485760,  # 10MB
+            'backupCount': 10
+        }
     },
     'loggers': {
         '': {
-            'handlers': ['console'],
+            'handlers': ['console', 'error_file'],
             'level': 'INFO',
         },
+        'gunicorn.access': {
+            'handlers': ['console', 'access_file'],
+            'level': 'INFO',
+            'propagate': False
+        },
+        'gunicorn.error': {
+            'handlers': ['console', 'error_file'],
+            'level': 'INFO',
+            'propagate': False
+        }
     }
 }
 
