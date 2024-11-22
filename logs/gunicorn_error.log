@@ -26,3 +26,47 @@ Traceback (most recent call last):
     self.app.logger.info(
     ^^^^^^^^^^^^^^^
 AttributeError: 'function' object has no attribute 'logger'
+2024-11-22 00:00:22 +0000 [4789] [INFO] main: Application started at 2024-11-22T00:00:22.912227
+2024-11-22 00:00:22,912 - INFO - [None] None None - Application started at 2024-11-22T00:00:22.912227
+2024-11-22 00:00:22 +0000 [4789] [INFO] main: Application started at 2024-11-22T00:00:22.912227
+2024-11-22 00:00:22,912 - INFO - [None] None None - Application started at 2024-11-22T00:00:22.912227
+2024-11-22 00:00:22 +0000 [4789] [INFO] main: Environment: production
+2024-11-22 00:00:22,912 - INFO - [None] None None - Environment: production
+2024-11-22 00:00:22 +0000 [4789] [INFO] main: Environment: production
+2024-11-22 00:00:22,912 - INFO - [None] None None - Environment: production
+2024-11-22 00:00:22 +0000 [4789] [INFO] main: Upload directory created/verified at static/uploads
+2024-11-22 00:00:22,913 - INFO - [None] None None - Upload directory created/verified at static/uploads
+2024-11-22 00:00:22 +0000 [4789] [INFO] main: Upload directory created/verified at static/uploads
+2024-11-22 00:00:22,913 - INFO - [None] None None - Upload directory created/verified at static/uploads
+2024-11-22 00:00:22 +0000 [4789] [INFO] gunicorn.error: Starting gunicorn 23.0.0
+2024-11-22 00:00:22 +0000 [4789] [INFO] gunicorn.error: Starting server at 2024-11-22 00:00:22.917572
+2024-11-22 00:00:22 +0000 [4789] [INFO] gunicorn.error: Listening at: http://0.0.0.0:5000 (4789)
+2024-11-22 00:00:22 +0000 [4789] [INFO] gunicorn.error: Using worker: sync
+2024-11-22 00:00:22 +0000 [4824] [INFO] gunicorn.error: Booting worker with pid: 4824
+2024-11-22 00:00:22 +0000 [4825] [INFO] gunicorn.error: Booting worker with pid: 4825
+2024-11-22 00:00:23 +0000 [4824] [INFO] request: Request: GET / - Client: 172.31.196.103
+2024-11-22 00:00:23,084 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+2024-11-22 00:00:23 +0000 [4824] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:23 +0000] "GET / HTTP/1.1" 200 6551 "https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar1sj%3A" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" 0.011140
+2024-11-22 00:00:23 +0000 [4824] [INFO] request: Request: GET /static/js/app.js - Client: 172.31.196.103
+2024-11-22 00:00:23,166 - INFO - [None] None None - Request: GET /static/js/app.js - Client: 172.31.196.103
+2024-11-22 00:00:23 +0000 [4824] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:23 +0000] "GET /static/js/app.js HTTP/1.1" 304 0 "https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" 0.005209
+2024-11-22 00:00:23 +0000 [4789] [INFO] gunicorn.error: Handling signal: winch
+2024-11-22 00:00:23 +0000 [4789] [INFO] gunicorn.error: Handling signal: winch
+2024-11-22 00:00:23 +0000 [4789] [INFO] gunicorn.error: Handling signal: winch
+2024-11-22 00:00:23 +0000 [4824] [INFO] request: Request: GET /static/css/output.css - Client: 172.31.196.103
+2024-11-22 00:00:23,269 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+2024-11-22 00:00:23 +0000 [4824] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:23 +0000] "GET /static/css/output.css HTTP/1.1" 304 0 "https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" 0.002352
+2024-11-22 00:00:23 +0000 [4824] [INFO] request: Request: GET / - Client: 172.31.196.103
+2024-11-22 00:00:23,425 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+2024-11-22 00:00:23 +0000 [4824] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:23 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/118.0.5993.88 Safari/537.36" 0.001244
+2024-11-22 00:00:23 +0000 [4825] [INFO] request: Request: GET /login - Client: 172.31.196.103
+2024-11-22 00:00:23,436 - INFO - [None] None None - Request: GET /login - Client: 172.31.196.103
+2024-11-22 00:00:23 +0000 [4825] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:23 +0000] "GET /login HTTP/1.1" 200 1763 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/118.0.5993.88 Safari/537.36" 0.008032
+2024-11-22 00:00:23 +0000 [4825] [INFO] request: Request: GET /static/css/output.css - Client: 172.31.196.103
+2024-11-22 00:00:23,454 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+2024-11-22 00:00:23 +0000 [4825] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:23 +0000] "GET /static/css/output.css HTTP/1.1" 200 0 "https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/118.0.5993.88 Safari/537.36" 0.004565
+2024-11-22 00:00:24 +0000 [4825] [INFO] request: Request: GET /get_assistants - Client: 172.31.196.103
+2024-11-22 00:00:24,315 - INFO - [None] None None - Request: GET /get_assistants - Client: 172.31.196.103
+2024-11-22 00:00:24 +0000 [4825] [INFO] httpx: HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+2024-11-22 00:00:24,528 - INFO - [172.31.196.103] GET https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/get_assistants - HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+2024-11-22 00:00:24 +0000 [4825] [INFO] gunicorn.access: 172.31.196.103 - - [22/Nov/2024:00:00:24 +0000] "GET /get_assistants HTTP/1.1" 200 71 "https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" 0.221634

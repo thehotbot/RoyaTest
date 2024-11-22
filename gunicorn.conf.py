@@ -17,14 +17,16 @@ graceful_timeout = 120
 keepalive = 5
 
 # Worker settings
-max_requests = 2000  # Increased to reduce worker recycling
-max_requests_jitter = 100  # Increased to prevent thundering herd
+max_requests = 2500  # Further increased to reduce worker recycling
+max_requests_jitter = 200  # Increased jitter for better load distribution
 preload_app = True
 worker_class = 'sync'  # Using sync worker for better compatibility
 workers = 2  # Limiting workers for Replit environment
-timeout = 300  # Increased timeout for better persistence
-keepalive = 15  # Increased keepalive for better connection handling
-graceful_timeout = 60  # More time for graceful worker shutdown
+timeout = 600  # Increased timeout for better persistence
+keepalive = 30  # Increased keepalive for better connection handling
+graceful_timeout = 90  # More time for graceful worker shutdown
+capture_output = True  # Capture stdout/stderr in error log
+enable_stdio_inheritance = True  # Inherit stdio for better logging
 
 # Logging
 accesslog = 'logs/gunicorn_access.log'
