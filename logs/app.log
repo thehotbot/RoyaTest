@@ -506,3 +506,43 @@ Function: __call__
 Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
 Function: _send_single_request
 
+2024-11-22 00:01:09,568 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 00:01:09,638 - INFO - [None] None None - Request: GET /static/js/app.js - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 00:01:09,643 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 00:01:10,700 - INFO - [None] None None - Request: GET /get_assistants - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 00:01:10,869 - INFO - [172.31.196.103] GET https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/get_assistants - HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+
+2024-11-22 12:21:23,352 - INFO - [None] None None - Request: GET / - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 12:21:23,662 - INFO - [None] None None - Request: GET /static/css/output.css - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 12:21:23,719 - INFO - [None] None None - Request: GET /static/js/app.js - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 12:21:24,940 - INFO - [None] None None - Request: GET /get_assistants - Client: 172.31.196.103
+Path: /home/runner/OnRiseAI/utils/logging_config.py:85
+Function: __call__
+
+2024-11-22 12:21:25,343 - INFO - [172.31.196.103] GET https://caabdce8-c1a7-4245-80ca-5b7bdf73180e-00-3enb842mq69h9.janeway.replit.dev/get_assistants - HTTP Request: GET https://api.openai.com/v1/assistants?limit=20&order=desc "HTTP/1.1 200 OK"
+Path: /home/runner/OnRiseAI/.pythonlibs/lib/python3.11/site-packages/httpx/_client.py:1038
+Function: _send_single_request
+

@@ -49,7 +49,7 @@ args = "sh -c \"npx tailwindcss -i static/css/tailwind.css -o static/css/output.
 waitForPort = 5000
 
 [deployment]
-run = ["sh", "-c", "npx tailwindcss build static/css/tailwind.css -o static/css/output.css"]
+run = ["sh", "-c", "npx tailwindcss -i static/css/tailwind.css -o static/css/output.css && gunicorn wsgi:app --bind 0.0.0.0:5000"]
 deploymentTarget = "cloudrun"
 
 [[ports]]
